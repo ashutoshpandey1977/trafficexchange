@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User Registration</title>
+</head>
+
+<body>
+
+<form id="contact-form">
+    <input type="text" name="name" placeholder="Name">
+    <input type="text" name="password" placeholder="Password">
+    <input type="email" name="email" placeholder="Email">
+    <button type="submit">Submit</button>
+</form>
+<div id="response-message"></div>
+<script>
+const client_id = "76ufkjde1vl14j617tc7etf2sg"
+const client_secret = ""
+const callback_uri = "https://www.webtrafficexchange.co.uk/logged_in.html"
+const cognito_app_url = "https://webtrafficexchange.auth.eu-north-1.amazoncognito.com"
+
+
+const code="0dd10c23-8faf-4d4a-9916-c03ae46b808e"
+
+token_url = "https://webtrafficexchange.auth.eu-north-1.amazoncognito.com/oauth2/token"
+
+const data = {
+    "grant_type": "authorization_code",
+    "client_id": client_id,
+    "code": code,
+    "redirect_uri": callback_uri
+}
+
+const contactForm = document.getElementById('contact-form');
+const responseMessage = document.getElementById('response-message');
+contactForm.addEventListener('submit', function (event) {
+  event.preventDefault();
+
+
+var formBody = [];
+formBody.push("grant_type" + "=" + "authorization_code");
+formBody.push("client_id" + "=" + client_id);
+formBody.push("code" + "=" + code);
+formBody.push("redirect_uri" + "=" + callback_uri);
+formBody = formBody.join("&");
+
+const requestOptions = {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/x-www-form-urlencoded',
+  },
+  body: formBody
+};
+
+  fetch(token_url, requestOptions)
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      return response.text();
+    })
+    .then(data => {
+      responseMessage.textContent = data;
+    })
+    .catch(error => {
+      console.error('Error:', error);
+    });
+});
+
+
+</script>
+</body>
+</html>
