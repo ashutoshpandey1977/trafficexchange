@@ -29,9 +29,17 @@ function register(){
   }
   })
  .then(response => response.json())
-  .then(data => window.location.href = "http://www.webtrafficexchange.co.uk/home.html?username="+data["user_name"])
+  .then(data => {
+        if (JSON.parse(data['body']).hasOwnProperty('user_name')) {
+            window.location.href = "https://www.webtrafficexchange.co.uk/home.html?username="+JSON.parse(data['body'])['user_name']
+        }
+        else{
+            document.getElementById('signup-warning').innerText ='Error occurred while registering user';
+        }
+   })
   .catch((error) => {
    console.error('Error:', error);
+   document.getElementById('signup-warning').innerText ='Error occurred while registering user';
 });
 }
 
@@ -55,6 +63,7 @@ function register(){
     </div>
     <div class="registration form">
         <header>Signup</header>
+        <span id="signup-warning" style="color:red"></span>
         <input id="registration-username" type="text" placeholder="Enter your username">
         <input id="registration-password" type="password" placeholder="Create a password">
         <input id="registration-confirm-password" type="password" placeholder="Confirm your password">
