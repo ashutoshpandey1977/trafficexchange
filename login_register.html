@@ -2,56 +2,19 @@
 <!-- Coding By CodingNepal - codingnepalweb.com -->
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Login & Registration Form</title>
-  <!---Custom CSS File--->
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Login & Registration Form</title>
+    <!---Custom CSS File--->
+    <link rel="stylesheet" href="style.css">
 </head>
 <body style="background-image: url('webtraffic-transparent.png');">
-  <div class="container">
-    <input type="checkbox" id="check">
-    <div class="login form">
-      <header>Login</header>
-      <form id="login"" action="#">
-        <input id="login-username" type="text" placeholder="Enter your username">
-        <input id="login-password" type="password" placeholder="Enter your password">
-        <a href="#">Forgot password?</a>
-        <input type="button" class="button" value="Login">
-      </form>
-      <div class="signup">
-        <span class="signup">Don't have an account?
-         <label for="check">Signup</label>
-        </span>
-      </div>
-    </div>
-    <div class="registration form">
-      <header>Signup</header>
-      <form id="registration" action="#">
-        <input id="registration-username" type="username" placeholder="Enter your username">
-        <input id="registration-password" type="password" placeholder="Create a password">
-        <input id="registration-confirm-password" type="password" placeholder="Confirm your password">
-        <input id="registration-email" type="text" placeholder="Enter your email">
-        <input type="button" class="button" value="Signup">
-      </form>
-      <div class="signup">
-        <span class="signup">Already have an account?
-         <label for="check">Login</label>
-        </span>
-      </div>
-    </div>
-  </div>
-</body>
-  <script>
-var form=document.getElementById('registration')
-
-form.addEventListener('submit', function(e){
- e.preventDefault()
-
+<script type="text/javascript">
+function register(){
  var username=document.getElementById('registration-username').value
- var password=document.getElementById('registration-paswword').value
-  var email=document.getElementById('registration-email').value
+ var password=document.getElementById('registration-password').value
+ var email=document.getElementById('registration-email').value
 
  fetch('https://os6p24onhg.execute-api.eu-north-1.amazonaws.com/live/register', {
   method: 'POST',
@@ -65,15 +28,45 @@ form.addEventListener('submit', function(e){
     'Content-type': 'application/json; charset=UTF-8',
   }
   })
-  .then(function(response){ 
-  return response.json()})
-  .then(function(data)
-  {console.log(data)
-  title=document.getElementById("title")
-  body=document.getElementById("bd")
-  title.innerHTML = data.title
-  body.innerHTML = data.body  
-}).catch(error => console.error('Error:', error)); 
+ .then(response => response.json())
+  .then(data => window.location.href = "http://www.webtrafficexchange.co.uk/home.html?username="+data["user_name"])
+  .catch((error) => {
+   console.error('Error:', error);
 });
+}
+
+
 </script>
+
+
+<div class="container">
+    <input type="checkbox" id="check">
+    <div class="login form">
+        <header>Login</header>
+        <input id="login-username" type="text" placeholder="Enter your username">
+        <input id="login-password" type="password" placeholder="Enter your password">
+        <a href="#">Forgot password?</a>
+        <input type="button" class="button" value="Login">
+        <div class="signup">
+        <span class="signup">Don't have an account?
+         <label for="check">Signup</label>
+        </span>
+        </div>
+    </div>
+    <div class="registration form">
+        <header>Signup</header>
+        <input id="registration-username" type="text" placeholder="Enter your username">
+        <input id="registration-password" type="password" placeholder="Create a password">
+        <input id="registration-confirm-password" type="password" placeholder="Confirm your password">
+        <input id="registration-email" type="text" placeholder="Enter your email">
+        <input type="button" class="button" value="Signup" onclick="register()">
+        <div class="signup">
+        <span class="signup">Already have an account?
+         <label for="check">Login</label>
+        </span>
+        </div>
+    </div>
+</div>
+</body>
+
 </html>
