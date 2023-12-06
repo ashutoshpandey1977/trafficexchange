@@ -14,9 +14,9 @@
     <input type="checkbox" id="check">
     <div class="login form">
       <header>Login</header>
-      <form action="#">
-        <input type="text" placeholder="Enter your username">
-        <input type="password" placeholder="Enter your password">
+      <form id="login"" action="#">
+        <input id="login-username" type="text" placeholder="Enter your username">
+        <input id="login-password" type="password" placeholder="Enter your password">
         <a href="#">Forgot password?</a>
         <input type="button" class="button" value="Login">
       </form>
@@ -28,11 +28,11 @@
     </div>
     <div class="registration form">
       <header>Signup</header>
-      <form action="#">
-        <input type="username" placeholder="Enter your username">
-        <input type="password" placeholder="Create a password">
-        <input type="password" placeholder="Confirm your password">
-        <input type="text" placeholder="Enter your email">
+      <form id="registration" action="#">
+        <input id="registration-username" type="username" placeholder="Enter your username">
+        <input id="registration-password" type="password" placeholder="Create a password">
+        <input id="registration-confirm-password" type="password" placeholder="Confirm your password">
+        <input id="registration-email" type="text" placeholder="Enter your email">
         <input type="button" class="button" value="Signup">
       </form>
       <div class="signup">
@@ -43,4 +43,37 @@
     </div>
   </div>
 </body>
+  <script>
+var form=document.getElementById('registration')
+
+form.addEventListener('submit', function(e){
+ e.preventDefault()
+
+ var username=document.getElementById('registration-username').value
+ var password=document.getElementById('registration-paswword').value
+  var email=document.getElementById('registration-email').value
+
+ fetch('https://os6p24onhg.execute-api.eu-north-1.amazonaws.com/live/register', {
+  method: 'POST',
+  body: JSON.stringify({
+    username:username,
+    password:password,
+    email:email
+
+  }),
+  headers: {
+    'Content-type': 'application/json; charset=UTF-8',
+  }
+  })
+  .then(function(response){ 
+  return response.json()})
+  .then(function(data)
+  {console.log(data)
+  title=document.getElementById("title")
+  body=document.getElementById("bd")
+  title.innerHTML = data.title
+  body.innerHTML = data.body  
+}).catch(error => console.error('Error:', error)); 
+});
+</script>
 </html>
