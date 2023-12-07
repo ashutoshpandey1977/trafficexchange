@@ -31,7 +31,7 @@ function register(){
  .then(response => response.json())
   .then(data => {
         if (JSON.parse(data['body']).hasOwnProperty('user_name')) {
-            window.location.href = "https://www.webtrafficexchange.co.uk/home.html?username="+JSON.parse(data['body'])['user_name']
+            window.location.href = "https://www.webtrafficexchange.co.uk/home.html?username="+JSON.parse(data['body'])['user_name'] + "&session=" + JSON.parse(data['body'])['session_id']
         }
         else{
             document.getElementById('signup-warning').innerText ='Error occurred while registering user';
