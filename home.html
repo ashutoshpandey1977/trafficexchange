@@ -1,1 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Web Traffic exchange</title>
+    <script type="text/javascript">
+        window.addEventListener("load", initialize);
+        function initialize(){
+            const queryString = window.location.search;
+            const urlParams = new URLSearchParams(queryString);
+            document.getElementById("username").innerText=urlParams.get("username");
+        }
+    </script>
+</head>
+<body style="background-image: url('webtraffic-transparent.png');">
+<h3 id="username">
 
+</h3>
+
+</body>
+</html>
