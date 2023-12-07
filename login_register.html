@@ -15,7 +15,7 @@ function register(){
  var password=document.getElementById('registration-password').value
  var email=document.getElementById('registration-email').value
 
- fetch('https://os6p24onhg.execute-api.eu-north-1.amazonaws.com/live/login', {
+ fetch('https://os6p24onhg.execute-api.eu-north-1.amazonaws.com/live/register', {
   method: 'POST',
   body: JSON.stringify({
     username:username,
