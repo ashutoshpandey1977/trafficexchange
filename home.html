@@ -8,8 +8,7 @@
         alert('thanks ' + document.getElementById('field').value);
     }
 
-    function validate(event) {
-        event.preventDefault();
+    function validate() {
         if (!document.getElementById('field').value) {
             alert("You must add text to the required field");
         } else {
