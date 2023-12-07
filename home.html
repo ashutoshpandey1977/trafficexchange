@@ -8,14 +8,46 @@
         function initialize(){
             const queryString = window.location.search;
             const urlParams = new URLSearchParams(queryString);
-            document.getElementById("username").innerText=urlParams.get("username");
+            document.getElementById("username").innerHTML=urlParams.get("username");
         }
+
+
     </script>
 </head>
 <body style="background-image: url('webtraffic-transparent.png');">
-<h3 id="username">
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+<script>
+      function startTraffic(e) {
+        grecaptcha.ready(function() {
+          grecaptcha.execute('6LdL7SkpAAAAAHFB3vqxVg6TuMgO-lL2vkFHKFOG', {action: 'submit'}).then(function(token) {
+              console.log(token);
+          });
+        });
+      }
 
-</h3>
-
+</script>
+<table width="100%" style="border-collapse:collapse">
+    <tr bgcolor="#ddd">
+        <td align="left">
+            <img class="text-block-profile" src="user-avatar.png" alt="profile"
+                 style="vertical-align: middle;width: 50px;height: 50px;border-radius: 50%;">
+            <span style="color:#C71585;font-size:18px;font-family: fantasy;"> Web Traffic Exchange</span></td>
+        <td align="right">
+            <span id="username" style="color:#1E90FF;font-size:18px;font-family: fantasy;"></span>
+            <img class="text-block-profile" src="avatar.png" alt="profile"
+                 style="vertical-align: middle;width: 50px;height: 50px;border-radius: 50%;">
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2">
+            <form action="?" method="POST">
+                <div class="g-recaptcha" data-sitekey="6Lcb9SkpAAAAAIV5Zz7JUdWb3NyTC6wxh6409DPn"></div>
+                <br/>
+                <input type="submit" value="Submit">
+            </form>
+            <input type="button" class="button" value="Start Traffic" onclick="startTraffic()">
+        </td>
+    </tr>
+</table>
 </body>
 </html>
