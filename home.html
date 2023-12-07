@@ -8,12 +8,16 @@
         alert('thanks ' + document.getElementById('field').value);
     }
 
-    function validate() {
+    function validate(event) {
         if (!document.getElementById('field').value) {
             alert("You must add text to the required field");
         } else {
             grecaptcha.execute();
         }
+    }
+    function onload() {
+      var element = document.getElementById('submit');
+      element.onclick = validate;
     }
     </script>
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
@@ -47,5 +51,6 @@
         </td>
     </tr>
 </table>
+<script>onload();</script>
 </body>
 </html>
