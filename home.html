@@ -3,28 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <title>Web Traffic exchange</title>
-    <script type="text/javascript">
-        window.addEventListener("load", initialize);
-        function initialize(){
-            const queryString = window.location.search;
-            const urlParams = new URLSearchParams(queryString);
-            document.getElementById("username").innerHTML=urlParams.get("username");
-        }
+    function onSubmit(token) {
+    alert('thanks ' + document.getElementById('field').value);
+    }
 
-        var onloadCallback = function() {
-        grecaptcha.render('html_element', {
-          'sitekey' : '6Lcb9SkpAAAAAIV5Zz7JUdWb3NyTC6wxh6409DPn'
-        });
-      };
-    
-    
-    </script>
+    function validate(event) {
+    event.preventDefault();
+    if (!document.getElementById('field').value) {
+    alert("You must add text to the required field");
+    } else {
+    grecaptcha.execute();
+    }
+    }
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 <body style="background-image: url('webtraffic-transparent.png');">
 
-<script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit"
-        async defer>
-</script>
+
 <table width="100%" style="border-collapse:collapse">
     <tr bgcolor="#ddd">
         <td align="left">
@@ -39,15 +34,15 @@
     </tr>
     <tr>
         <td colspan="2">
-            <form action="?" method="POST">
-                <div id="html_element"></div>
-                <br>
-                <input type="submit" value="Submit">
+            <form>
+                Name: (required) <input id="field" name="field">
+                <div id="recaptcha" class="g-recaptcha"
+                     data-sitekey="6Lcb9SkpAAAAAIV5Zz7JUdWb3NyTC6wxh6409DPn"
+                     data-callback="onSubmit"
+                     data-size="invisible"></div>
+                <input type="button" class="button" value="Start Traffic" onclick="validate()">
             </form>
-            <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit"
-                    async defer>
-            </script>
-            <input type="button" class="button" value="Start Traffic" onclick="startTraffic()">
+            
         </td>
     </tr>
 </table>
