@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<!-- Coding By CodingNepal - codingnepalweb.com -->
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -16,7 +15,7 @@ function register(){
  var password=document.getElementById('registration-password').value
  var email=document.getElementById('registration-email').value
 
- fetch('https://os6p24onhg.execute-api.eu-north-1.amazonaws.com/live/register', {
+ fetch('https://os6p24onhg.execute-api.eu-north-1.amazonaws.com/live/login', {
   method: 'POST',
   body: JSON.stringify({
     username:username,
@@ -43,7 +42,35 @@ function register(){
 });
 }
 
+function login(){
+ var username=document.getElementById('login-username').value
+ var password=document.getElementById('login-password').value
 
+ fetch('https://os6p24onhg.execute-api.eu-north-1.amazonaws.com/live/login', {
+  method: 'POST',
+  body: JSON.stringify({
+    username:username,
+    password:password
+
+  }),
+  headers: {
+    'Content-type': 'application/json; charset=UTF-8',
+  }
+  })
+ .then(response => response.json())
+  .then(data => {
+        if (JSON.parse(data['body']).hasOwnProperty('user_name')) {
+            window.location.href = "https://www.webtrafficexchange.co.uk/home.html?username="+JSON.parse(data['body'])['user_name'] + "&session=" + JSON.parse(data['body'])['session_id']
+        }
+        else{
+            document.getElementById('login-warning').innerText ='Invalid username password';
+        }
+   })
+  .catch((error) => {
+   console.error('Error:', error);
+   document.getElementById('login-warning').innerText ='Invalid username password';
+});
+}
 </script>
 
 
@@ -51,10 +78,11 @@ function register(){
     <input type="checkbox" id="check">
     <div class="login form">
         <header>Login</header>
+        <span id="login-warning" style="color:red"></span>
         <input id="login-username" type="text" placeholder="Enter your username">
         <input id="login-password" type="password" placeholder="Enter your password">
         <a href="#">Forgot password?</a>
-        <input type="button" class="button" value="Login">
+        <input type="button" class="button" value="Login" onclick="login()">
         <div class="signup">
         <span class="signup">Don't have an account?
          <label for="check">Signup</label>
