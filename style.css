@@ -10,6 +10,9 @@ body{
   min-height: 100vh;
   width: 100%;
   background: #009579;
+  font-family: fantasy; 
+  color: #111; 
+  background-image: url('webtraffic-transparent.png');
 }
 .container{
   position: absolute;
@@ -88,3 +91,34 @@ body{
 .signup label:hover{
   text-decoration: underline;
 }
+
+.button {
+  padding: 15px 25px;
+  font-size: 24px;
+  text-align: center;
+  cursor: pointer;
+  outline: none;
+  color: #fff;
+  background-color: #04AA6D;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #999;
+}
+ul {
+  list-style: none;
+  padding: 0;
+}
+li {
+  padding: 5px 10px;
+  background-color: #EEEEEE;
+  border: 1px solid #DDDDDD;
+}
+
+.text-block-profile {
+  text-align: center;
+  display: block;
+  margin-top: .5rem;
+  font-size:38px;
+  font-family: fantasy;
+   color: #ddd;
+  }
