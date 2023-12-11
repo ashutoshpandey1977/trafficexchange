@@ -42,11 +42,57 @@
         .then(response => response.json())
 
         // Displaying results to console
-        .then(json => console.log(json))
-        .catch(error => {
-                    throw(error);
-                })
+        .then(json => {
+            console.log(json);
+            constructTable(document.getElementById("sites"))
+            }
+            )
+        .catch(error =>console.log(error))
 
+    }
+
+    function constructTable(selector) {
+ 
+    // Getting the all column names
+        let cols = Headers(list, selector);
+
+    // Traversing the JSON data
+        for (let i = 0; i < list.length; i++) {
+            let row = $('<tr/>');
+            for (let colIndex = 0; colIndex < cols.length; colIndex++) {
+                let val = list[i][cols[colIndex]];
+
+                // If there is any key, which is matching
+                // with the column name
+                if (val == null) val = "";
+                row.append($('<td/>').html(val));
+            }
+
+            // Adding each row to the table
+            $(selector).append(row);
+        }
+        }
+
+        function Headers(list, selector) {
+        let columns = [];
+        let header = $('<tr/>');
+
+        for (let i = 0; i < list.length; i++) {
+            let row = list[i];
+
+            for (let k in row) {
+                if ($.inArray(k, columns) == -1) {
+                    columns.push(k);
+
+                    // Creating the header
+                    header.append($('<th/>').html(k));
+                }
+            }
+        }
+
+        // Appending the header to the table
+        $(selector).append(header);
+        return columns;
     }
     
     </script>
@@ -70,12 +116,8 @@
     </tr>
     <tr>
         <td colspan="2">
-            Name: (required) <input id="field" name="field">
-                <div id="recaptcha" class="g-recaptcha"
-                     data-sitekey="6LeCSSopAAAAANyrXzLuRsZOr1GubgXEK9Y9Iht6"
-                     data-callback="onSubmit"
-                     data-size="invisible"></div>
-                     <button id="submit">Start Traffic</button>         
+            <table align="center" id="sites" border="1">
+            </table>      
         </td>
     </tr>
 </table>
