@@ -121,3 +121,18 @@ li {
   font-family: fantasy;
    color: #ddd;
   }
+  #sites.tr:nth-child(even) {
+    background-color: #D6EEEE;
+  }
+
+  table th {
+    font-size: .85em;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    background-color: #ee66b5;
+  }
+
+  table {
+    border-collapse: collapse;
+    border: 1px solid black;
+  }
