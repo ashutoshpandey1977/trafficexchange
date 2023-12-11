@@ -45,14 +45,14 @@
         // Displaying results to console
         .then(json => {
             console.log(json);
-            constructTable(document.getElementById("sites"))
+            constructTable(json, document.getElementById("sites"))
             }
             )
         .catch(error =>console.log(error))
 
     }
 
-    function constructTable(selector) {
+    function constructTable(list, selector) {
  
     // Getting the all column names
         let cols = Headers(list, selector);
@@ -74,7 +74,7 @@
         }
         }
 
-        function Headers(list, selector) {
+    function Headers(list, selector) {
         let columns = [];
         let header = $('<tr/>');
 
