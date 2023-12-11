@@ -69,6 +69,9 @@
                 row.append($('<td/>').html(val));
             }
             row.append($('<td/>').html('<input type="button" class="button-row" value="remove" onclick="remove_site(\'' + list[i][cols[0]] +'\')">'));
+            if(list[i][cols[1]] == "INACTIVE"){
+                row.addClass("row-inactive");
+            }
             // Adding each row to the table
             $(selector).append(row);
         }
@@ -209,6 +212,7 @@
             <input type="button" class="button" value="Start Traffic Exchange" onclick="start_traffic_exchange()">
         </td>
     </tr>
+    <tr><td colspan="2"><br><br></td></tr>
     <tr>
         <td colspan="2">
             <table align="center" id="sites" border="1" width="100%">

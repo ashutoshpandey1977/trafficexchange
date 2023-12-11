@@ -104,14 +104,14 @@ body{
   box-shadow: 0 9px #999;
 }
 .button-row {
-  font-size: 12px;
+  font-size: 16px;
   text-align: center;
   cursor: pointer;
   outline: none;
   color: #fff;
   background-color: #04AA6D;
   border: none;
-  border-radius: 7px;
+  border-radius: 10px;
 }
 ul {
   list-style: none;
@@ -157,4 +157,8 @@ li {
     background-color: #eeffff;
     border: none;
     border-radius: 15px;
+  }
+
+  .row-inactive {
+    background-color: #D6EEEE;
   }
