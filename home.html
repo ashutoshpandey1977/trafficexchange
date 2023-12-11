@@ -28,7 +28,7 @@
             body: JSON.stringify(
                 {
                 user_name: urlParams.get("username"),
-                session_id: urlParams.get("session_id")
+                session_id: urlParams.get("session")
                 }
             ),
             
@@ -42,7 +42,10 @@
         .then(response => response.json())
 
         // Displaying results to console
-        .then(json => console.log(json));
+        .then(json => console.log(json))
+        .catch(error => {
+                    throw(error);
+                })
 
     }
     
