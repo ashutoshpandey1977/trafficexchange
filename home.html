@@ -68,7 +68,8 @@
                 if (val == null) val = "";
                 row.append($('<td/>').html(val));
             }
-            row.append($('<td/>').html('<input type="button" class="row-button" value="remove" onclick="remove_site()">'));
+            site='"'+list[i][cols[0]]+'"';
+            row.append($('<td/>').html('<input type="button" class="row-button" value="remove" onclick="remove_site(\'' + list[i][cols[0]] +'\')>'));
             // Adding each row to the table
             $(selector).append(row);
         }
