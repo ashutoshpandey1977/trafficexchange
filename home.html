@@ -95,6 +95,47 @@
         $(selector).append(header);
         return columns;
     }
+
+    function add_site(){
+        const queryString = window.location.search;
+        const urlParams = new URLSearchParams(queryString);
+
+        // POST request using fetch()
+        fetch("https://os6p24onhg.execute-api.eu-north-1.amazonaws.com/live/sites", {
+            
+            // Adding method type
+            method: "POST",
+            
+            // Adding body or contents to send
+            body: JSON.stringify(
+                {
+                user_name: urlParams.get("username"),
+                session_id: urlParams.get("session"),
+                site_url: document.getElementById("site_url").value,
+                action: "ADD"
+                }
+            ),
+            
+            // Adding headers to the request
+            headers: {
+                "Content-type": "application/json; charset=UTF-8"
+            }
+        })
+
+        // Converting to JSON
+        .then(response => response.json())
+
+        // Displaying results to console
+        .then(data => {
+            console.log(data);
+            constructTable(JSON.parse(data['body']), document.getElementById("sites"))
+            }
+            )
+        .catch(error =>console.log(error))
+
+    }
+
+    
     
     </script>
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
@@ -112,6 +153,15 @@
             <span id="username" style="color:#1E90FF;font-size:18px;font-family: fantasy;"></span>
             <img  src="avatar.png" alt="profile"
                  style="vertical-align: middle;width: 50px;height: 50px;border-radius: 50%;">
+        </td>
+    </tr>
+    <tr>
+        <td >
+            <input id="site_url" type="text" placeholder="Enter your site_url">    
+            <input type="button" class="button" value="Add Site" onclick="add_site()">
+        </td>
+        <td>
+            <input type="button" class="button" value="Add Site" onclick="start_traffic_exchange()">
         </td>
     </tr>
     <tr>
