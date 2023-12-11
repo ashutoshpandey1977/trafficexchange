@@ -68,7 +68,7 @@
                 if (val == null) val = "";
                 row.append($('<td/>').html(val));
             }
-
+            row.append($('<td/>').html('<input type="button" class="row-button" value="remove" onclick="remove_site()">'));
             // Adding each row to the table
             $(selector).append(row);
         }
@@ -128,15 +128,16 @@
         // Displaying results to console
         .then(data => {
             console.log(data);
-            document.getElementById("sites").innerHTML="";
-            constructTable(JSON.parse(data['body']), document.getElementById("sites"));
+            if (data['statusCode']==200) {
+                document.getElementById("sites").innerHTML="";
+                document.getElementById("site_url").value="";
+                constructTable(JSON.parse(data['body']), document.getElementById("sites"));
             }
-            )
+            }
+        )
         .catch(error =>console.log(error))
 
     }
-
-    
     
     </script>
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
@@ -144,7 +145,7 @@
 </head>
 <body>
 
-<table width="100%" style="border-collapse:collapse">
+<table width="100%" style="border-collapse:collapse; border-spacing: 30px;">
     <tr>
         <td align="center">
             <h1><img src="favicon.png" alt="profile"
