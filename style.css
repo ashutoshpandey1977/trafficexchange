@@ -136,3 +136,16 @@ li {
     border-collapse: collapse;
     border: 1px solid black;
   }
+
+  .text-input {
+    padding: 15px 25px;
+    font-size: 24px;
+    text-align: center;
+    cursor: pointer;
+    outline: none;
+    color: #fff;
+    background-color: #D6EEEE;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 9px #999;
+  }

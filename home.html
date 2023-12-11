@@ -128,7 +128,8 @@
         // Displaying results to console
         .then(data => {
             console.log(data);
-            constructTable(JSON.parse(data['body']), document.getElementById("sites"))
+            document.getElementById("sites").innerHTML="";
+            constructTable(JSON.parse(data['body']), document.getElementById("sites"));
             }
             )
         .catch(error =>console.log(error))
@@ -157,11 +158,11 @@
     </tr>
     <tr>
         <td >
-            <input id="site_url" type="text" placeholder="Enter your site_url">    
+            <input id="site_url" type="text" class="text-input" placeholder="Enter your site_url">    
             <input type="button" class="button" value="Add Site" onclick="add_site()">
         </td>
         <td>
-            <input type="button" class="button" value="Add Site" onclick="start_traffic_exchange()">
+            <input type="button" class="button" value="Start Traffic Exchange" onclick="start_traffic_exchange()">
         </td>
     </tr>
     <tr>
