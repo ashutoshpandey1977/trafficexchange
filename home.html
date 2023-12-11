@@ -68,7 +68,7 @@
                 if (val == null) val = "";
                 row.append($('<td/>').html(val));
             }
-            row.append($('<td/>').html('<input type="button" class="button-row" value="remove" onclick="remove_site(\'' + list[i][cols[0]] +'\')>'));
+            row.append($('<td/>').html('<input type="button" class="button-row" value="remove" onclick="remove_site(\'' + list[i][cols[0]] +'\')">'));
             // Adding each row to the table
             $(selector).append(row);
         }
@@ -113,6 +113,49 @@
                 session_id: urlParams.get("session"),
                 site_url: document.getElementById("site_url").value,
                 action: "ADD"
+                }
+            ),
+            
+            // Adding headers to the request
+            headers: {
+                "Content-type": "application/json; charset=UTF-8"
+            }
+        })
+
+        // Converting to JSON
+        .then(response => response.json())
+
+        // Displaying results to console
+        .then(data => {
+            console.log(data);
+            if (data['statusCode']==200) {
+                document.getElementById("sites").innerHTML="";
+                document.getElementById("site_url").value="";
+                constructTable(JSON.parse(data['body']), document.getElementById("sites"));
+            }
+            }
+        )
+        .catch(error =>console.log(error))
+
+    }
+
+    function remove_site(site_name){
+        const queryString = window.location.search;
+        const urlParams = new URLSearchParams(queryString);
+
+        // POST request using fetch()
+        fetch("https://os6p24onhg.execute-api.eu-north-1.amazonaws.com/live/sites", {
+            
+            // Adding method type
+            method: "POST",
+            
+            // Adding body or contents to send
+            body: JSON.stringify(
+                {
+                user_name: urlParams.get("username"),
+                session_id: urlParams.get("session"),
+                site_url: site_name,
+                action: "REMOVE"
                 }
             ),
             
