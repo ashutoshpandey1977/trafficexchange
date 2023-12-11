@@ -1,1 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Web Traffic exchange</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    <script>
+    window.addEventListener("load", initialize);
+    function initialize(){
+        const queryString = window.location.search;
+        const urlParams = new URLSearchParams(queryString);
+        document.getElementById("username").innerHTML=urlParams.get("username");
+    }
+    function onSubmit(token) {
+        alert('thanks ' + document.getElementById('field').value);
+    }
 
+    function validate(event) {
+        event.preventDefault();
+        if (!document.getElementById('field').value) {
+            alert("You must add text to the required field");
+        } else {
+            grecaptcha.execute();
+        }
+    }
+    function onload() {
+      var element = document.getElementById('submit');
+      element.onclick = validate;
+    }
+    </script>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<form>
+<table width="100%" style="border-collapse:collapse">
+    <tr>
+        <td align="center">
+            <h1><img src="favicon.png" alt="profile"
+                style="vertical-align: middle;width: 50px;height: 50px;border-radius: 50%;">
+                 <span style="background: #ddd;">Web Traffic Exchange</span></h1></td>
+        <td align="right">
+            <span id="username" style="color:#1E90FF;font-size:18px;font-family: fantasy;"></span>
+            <img  src="avatar.png" alt="profile"
+                 style="vertical-align: middle;width: 50px;height: 50px;border-radius: 50%;">
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2">
+            Name: (required) <input id="field" name="field">
+                <div id="recaptcha" class="g-recaptcha"
+                     data-sitekey="6LeCSSopAAAAANyrXzLuRsZOr1GubgXEK9Y9Iht6"
+                     data-callback="onSubmit"
+                     data-size="invisible"></div>
+                     <button id="submit">Start Traffic</button>         
+        </td>
+    </tr>
+</table>
+</form>
+<script>onload();</script>
+</body>
+</html>

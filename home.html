@@ -16,23 +16,36 @@
         const queryString = window.location.search;
         const urlParams = new URLSearchParams(queryString);
         document.getElementById("username").innerHTML=urlParams.get("username");
-    }
-    function onSubmit(token) {
-        alert('thanks ' + document.getElementById('field').value);
-    }
+        // main.js
 
-    function validate(event) {
-        event.preventDefault();
-        if (!document.getElementById('field').value) {
-            alert("You must add text to the required field");
-        } else {
-            grecaptcha.execute();
-        }
+        // POST request using fetch()
+        fetch("https://os6p24onhg.execute-api.eu-north-1.amazonaws.com/live/search_sites", {
+            
+            // Adding method type
+            method: "POST",
+            
+            // Adding body or contents to send
+            body: JSON.stringify(
+                {
+                user_name: urlParams.get("username"),
+                session_id: urlParams.get("session_id")
+                }
+            ),
+            
+            // Adding headers to the request
+            headers: {
+                "Content-type": "application/json; charset=UTF-8"
+            }
+        })
+
+        // Converting to JSON
+        .then(response => response.json())
+
+        // Displaying results to console
+        .then(json => console.log(json));
+
     }
-    function onload() {
-      var element = document.getElementById('submit');
-      element.onclick = validate;
-    }
+    
     </script>
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <link rel="stylesheet" href="style.css">
