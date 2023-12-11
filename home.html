@@ -45,7 +45,7 @@
         // Displaying results to console
         .then(data => {
             console.log(data);
-            constructTable(data['body'], document.getElementById("sites"))
+            constructTable(JSON.parse(data['body']), document.getElementById("sites"))
             }
             )
         .catch(error =>console.log(error))
