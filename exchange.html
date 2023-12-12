@@ -42,7 +42,7 @@
 
         // Displaying results to console
         .then(data => {
-            if (data['statusCode']==60000) {
+            if (data['statusCode']==200) {
                 document.getElementById("advert").src=data['body'];
                 
             }
@@ -51,7 +51,7 @@
         .catch(error =>console.log(error))
 
     }
-    setInterval(initializeIframe, 2000);
+    setInterval(initializeIframe, 60000);
 
     </script>
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
