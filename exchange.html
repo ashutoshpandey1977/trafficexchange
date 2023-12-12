@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Web Traffic exchange</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+   
+    function initializeIframe(){
+        document.getElementById("username").innerHTML=urlParams.get("username");
+        // main.js
+
+        // POST request using fetch()
+        fetch("https://os6p24onhg.execute-api.eu-north-1.amazonaws.com/live/exchange", {
+            
+            // Adding method type
+            method: "POST",
+            
+            // Adding body or contents to send
+            body: JSON.stringify(
+                {
+                user_name: urlParams.get("username"),
+                session_id: urlParams.get("session")
+                }
+            ),
+            
+            // Adding headers to the request
+            headers: {
+                "Content-type": "application/json; charset=UTF-8"
+            }
+        })
+
+        // Converting to JSON
+        .then(response => response.json())
+
+        // Displaying results to console
+        .then(data => {
+            if (data['statusCode']==60000) {
+                document.getElementById("advert").src=data['body'];
+                
+            }
+            
+        })
+        .catch(error =>console.log(error))
+
+    }
+    setInterval(myFunction, 2000);
+
+    </script>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<table width="100%" style="border-collapse:collapse; border-spacing: 30px;">
+    <tr>
+        <td align="center">
+            <iframe id="advert"  src="about:blank" style="width: 100%;border:3px solid black;"  id="Iframe"></iframe> 
+        </td>
+        
+    </tr>
+    
+</table>
+<script> 
+    // Selecting the iframe element 
+    var frame = document.getElementById("Iframe"); 
+      
+    // Adjusting the iframe height onload event 
+    frame.onload = function() 
+    // function execute while load the iframe 
+    { 
+      // set the height of the iframe as  
+      // the height of the iframe content 
+      frame.style.height =  
+      frame.contentWindow.document.body.scrollHeight + 'px'; 
+       
+
+     // set the width of the iframe as the  
+     // width of the iframe content 
+     frame.style.width  =  
+      frame.contentWindow.document.body.scrollWidth+'px'; 
+          
+    } 
+ </script> 
+        
+</body>
+</html>
