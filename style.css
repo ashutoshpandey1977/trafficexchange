@@ -141,7 +141,7 @@ li {
     letter-spacing: .1em;
     text-transform: uppercase;
     color: #ffffff;
-    background-color: #0a4729;
+    background-color: #04160d;
   }
 
   table td {
@@ -166,6 +166,6 @@ li {
   }
 
   .row-inactive {
-    background-color: #474747;
+    background-color: #8a8989;
     color: #ffffff;
   }
