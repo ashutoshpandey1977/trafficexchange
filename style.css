@@ -110,7 +110,7 @@ body{
   cursor: pointer;
   outline: none;
   color: #fff;
-  background-color: #04AA6D;
+  background-color: #02412a;
   border: none;
   border-radius: 10px;
 }
@@ -167,5 +167,10 @@ li {
 
   .row-inactive {
     background-color: #8a8989;
+    color: #ffffff;
+  }
+
+  .row-active {
+    background-color: #9b5cc5;
     color: #ffffff;
   }

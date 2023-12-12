@@ -73,6 +73,7 @@
                 row.append($('<td/>').html('<input type="button" class="button-row" value="Add" onclick="add_remove_site(\'' + list[i][cols[0]] +'\',\'ADD\')">'));
             }
             else{
+                row.addClass("row-active");
                 row.append($('<td/>').html('<input type="button" class="button-row" value="remove" onclick="add_remove_site(\'' + list[i][cols[0]] +'\',\'REMOVE\')">'));
             }
             // Adding each row to the table
@@ -214,7 +215,7 @@
             <input type="button" class="button" value="Add Site" onclick="add_site()">
         </td>
         <td>
-            <input type="button" class="button" value="Start Traffic Exchange" onclick="start_traffic_exchange()">
+            <input type="button" class="button" value="Earn Minutes" onclick="start_traffic_exchange()">
         </td>
     </tr>
     <tr><td colspan="2"><br><br></td></tr>
