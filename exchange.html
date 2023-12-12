@@ -14,9 +14,9 @@
     <script>
    
     function initializeIframe(){
-        document.getElementById("username").innerHTML=urlParams.get("username");
-        // main.js
-
+        const queryString = window.location.search;
+        const urlParams = new URLSearchParams(queryString);
+        
         // POST request using fetch()
         fetch("https://os6p24onhg.execute-api.eu-north-1.amazonaws.com/live/exchange", {
             
