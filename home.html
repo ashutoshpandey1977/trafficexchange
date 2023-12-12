@@ -41,17 +41,20 @@
 
         // Converting to JSON
         .then(response => response.json())
-
         // Displaying results to console
         .then(data => {
-            console.log(data);
-            constructTable(JSON.parse(data['body']), document.getElementById("sites"))
+            if (data['statusCode']==200) {
+                console.log(data);
+                constructTable(JSON.parse(data['body']['sites']), document.getElementById("sites"))
+                document.getElementById("current_balance").innerHTML=JSON.parse(data['body']['credit']);
             }
-            )
+            
+        })
         .catch(error =>console.log(error))
 
     }
-
+    setInterval(initialize, 100000);
+    
     function constructTable(list, selector) {
  
     // Getting the all column names
@@ -147,7 +150,7 @@
         .catch(error =>console.log(error))
 
     }
-
+   
     function add_remove_site(site_name,action){
         const queryString = window.location.search;
         const urlParams = new URLSearchParams(queryString);
