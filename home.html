@@ -70,10 +70,10 @@
             }
             if(list[i][cols[1]] == "INACTIVE"){
                 row.addClass("row-inactive");
-                row.append($('<td/>').html('<input type="button" class="button-row" value="Add" onclick="remove_site(\'' + list[i][cols[0]] +'\',\'ADD\')">'));
+                row.append($('<td/>').html('<input type="button" class="button-row" value="Add" onclick="add_remove_site(\'' + list[i][cols[0]] +'\',\'ADD\')">'));
             }
             else{
-                row.append($('<td/>').html('<input type="button" class="button-row" value="remove" onclick="remove_site(\'' + list[i][cols[0]] +'\',\'REMOVE\')">'));
+                row.append($('<td/>').html('<input type="button" class="button-row" value="remove" onclick="add_remove_site(\'' + list[i][cols[0]] +'\',\'REMOVE\')">'));
             }
             // Adding each row to the table
             $(selector).append(row);
