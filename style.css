@@ -104,6 +104,7 @@ body{
   box-shadow: 0 9px #999;
 }
 .button-row {
+  padding: 8px 12px;
   font-size: 12px;
   text-align: center;
   cursor: pointer;
@@ -139,7 +140,8 @@ li {
     font-size: .85em;
     letter-spacing: .1em;
     text-transform: uppercase;
-    background-color: #ddd;
+    color: #ffffff;
+    background-color: #128049;
   }
 
   table td {
@@ -164,5 +166,6 @@ li {
   }
 
   .row-inactive {
-    background-color: #D6EEEE;
+    background-color: #474747;
+    color: #ffffff;
   }
