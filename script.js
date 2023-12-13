@@ -46,7 +46,7 @@ function register(){
     .then(response => response.json())
      .then(data => {
            if (JSON.parse(data['body']).hasOwnProperty('user_name')) {
-               setCookie("username",JSON.parse(data['body'])['user_name'],0.01)
+               setCookie("username",JSON.parse(data['body'])['user_name'],60)
                setCookie("session",JSON.parse(data['body'])['session_id'],0.01)
                window.location.href = "https://www.webtrafficexchange.co.uk/home.html"
            }
@@ -78,7 +78,7 @@ function register(){
     .then(response => response.json())
      .then(data => {
            if (JSON.parse(data['body']).hasOwnProperty('user_name')) {
-             setCookie("username",JSON.parse(data['body'])['user_name'],0.01)
+             setCookie("username",JSON.parse(data['body'])['user_name'],60)
              setCookie("session",JSON.parse(data['body'])['session_id'],0.01)
              window.location.href = window.location.href = "https://www.webtrafficexchange.co.uk/home.html"
            }
@@ -320,6 +320,7 @@ function initializeIframe(){
         if (data['statusCode']==200) {
             document.getElementById("advert").src=data['body']['advert'];
             setCookie("credit",data['body']['credit'], 1)
+            setCookie("session",data['body']['session_id'], 0.01)
         }
         
     })
