@@ -94,7 +94,7 @@ function register(){
 
 
 
-   import (checkCookie,getCookie) from "cookie.js";
+
 function initialize(){
     checkCookie();
     document.getElementById("username").innerHTML=getCookie("username");
