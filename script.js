@@ -318,7 +318,7 @@ function initializeIframe(){
     // Displaying results to console
     .then(data => {
         if (data['statusCode']==200) {
-            document.getElementById("advert").src=data['body'];
+            document.getElementById("advert").src=data['body']['advert'];
             
         }
         
