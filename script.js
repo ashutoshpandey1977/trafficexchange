@@ -1,13 +1,27 @@
-function setSession(cname, cvalue) {
-    window.sessionStorage.setItem(cname, cvalue);
+function setCookie(cname, cvalue, exdays) {
+    const d = new Date();
+    d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+    let expires = "expires="+d.toUTCString();
+    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
   }
   
-  function getSession(cname) {
-    window.sessionStorage.getItem(cname);;
+  function getCookie(cname) {
+    let name = cname + "=";
+    let ca = document.cookie.split(';');
+    for(let i = 0; i < ca.length; i++) {
+      let c = ca[i];
+      while (c.charAt(0) == ' ') {
+        c = c.substring(1);
+      }
+      if (c.indexOf(name) == 0) {
+        return c.substring(name.length, c.length);
+      }
+    }
+    return "";
   }
   
-  function checkSession() {
-    let user = getSession("username");
+  function checkCookie() {
+    let user = getCookie("username");
     if (user == "") {
         window.location.href="https://www.webtrafficexchange.co.uk";
     } 
@@ -32,8 +46,8 @@ function register(){
     .then(response => response.json())
      .then(data => {
            if (JSON.parse(data['body']).hasOwnProperty('user_name')) {
-               setSession("username",JSON.parse(data['body'])['user_name'])
-               setSession("session",JSON.parse(data['body'])['session_id'])
+               setCookie("username",JSON.parse(data['body'])['user_name'],0.01)
+               setCookie("session",JSON.parse(data['body'])['session_id'],0.01)
                window.location.href = "https://www.webtrafficexchange.co.uk/home.html"
            }
            else{
@@ -64,8 +78,8 @@ function register(){
     .then(response => response.json())
      .then(data => {
            if (JSON.parse(data['body']).hasOwnProperty('user_name')) {
-             setSession("username",JSON.parse(data['body'])['user_name'])
-             setSession("session",JSON.parse(data['body'])['session_id'])
+             setCookie("username",JSON.parse(data['body'])['user_name'],0.01)
+             setCookie("session",JSON.parse(data['body'])['session_id'],0.01)
              window.location.href = window.location.href = "https://www.webtrafficexchange.co.uk/home.html"
            }
            else{
@@ -82,8 +96,8 @@ function register(){
 
 
 function initialize(){
-    checkSession();
-    document.getElementById("username").innerHTML=getSession("username");
+    checkCookie();
+    document.getElementById("username").innerHTML=getCookie("username");
     // main.js
 
     // POST request using fetch()
@@ -95,8 +109,8 @@ function initialize(){
         // Adding body or contents to send
         body: JSON.stringify(
             {
-            user_name: cookie.getSession("username"),
-            session_id: getSession("session")
+            user_name: cookie.getCookie("username"),
+            session_id: getCookie("session")
             }
         ),
 
@@ -192,8 +206,8 @@ function add_site(){
         // Adding body or contents to send
         body: JSON.stringify(
             {
-            user_name: getSession("username"),
-            session_id: getSession("session"),
+            user_name: getCookie("username"),
+            session_id: getCookie("session"),
             site_url: document.getElementById("site_url").value,
             action: "ADD"
             }
@@ -238,8 +252,8 @@ function add_remove_site(site_name,action){
         // Adding body or contents to send
         body: JSON.stringify(
             {
-            user_name: getSession("username"),
-            session_id: getSession("session"),
+            user_name: getCookie("username"),
+            session_id: getCookie("session"),
             site_url: site_name,
             action: action
             }
