@@ -203,7 +203,10 @@ function Headers(list, selector) {
 function add_site(){
     const queryString = window.location.search;
     const urlParams = new URLSearchParams(queryString);
-
+    site = document.getElementById("site_url").value;
+    if(site === null || site.trim().length === 0){
+        return;
+    }
     // POST request using fetch()
     fetch("https://os6p24onhg.execute-api.eu-north-1.amazonaws.com/live/sites", {
 
@@ -215,7 +218,7 @@ function add_site(){
             {
             user_name: getCookie("username"),
             session_id: getCookie("session"),
-            site_url: document.getElementById("site_url").value,
+            site_url: site,
             action: "ADD"
             }
         ),
