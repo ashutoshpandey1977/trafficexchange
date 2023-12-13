@@ -90,7 +90,7 @@ function register(){
      .then(data => {
            if (JSON.parse(data['body']).hasOwnProperty('user_name')) {
              setCookie("username",JSON.parse(data['body'])['user_name'],60)
-             setCookie("session",JSON.parse(data['body'])['session_id'],0.01)
+             setCookie("session",JSON.parse(data['body'])['session_id'],1)
              window.location.href = "https://www.webtrafficexchange.co.uk/home.html"
            }
            else{
