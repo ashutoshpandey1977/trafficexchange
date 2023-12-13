@@ -291,8 +291,6 @@ function start_traffic_exchange(){
 }
 
 function initializeIframe(){
-    const queryString = window.location.search;
-    const urlParams = new URLSearchParams(queryString);
     
     // POST request using fetch()
     fetch("https://os6p24onhg.execute-api.eu-north-1.amazonaws.com/live/exchange", {
@@ -303,8 +301,8 @@ function initializeIframe(){
         // Adding body or contents to send
         body: JSON.stringify(
             {
-            user_name: urlParams.get("username"),
-            session_id: urlParams.get("session")
+            user_name: getCookie("username"),
+            session_id: getCookie("session")
             }
         ),
         
