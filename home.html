@@ -194,7 +194,11 @@
         .catch(error =>console.log(error))
 
     }
-
+    function start_traffic_exchange(){
+        const queryString = window.location.search;
+        const urlParams = new URLSearchParams(queryString);
+        window.open('https://os6p24onhg.execute-api.eu-north-1.amazonaws.com/live/exchange?username='+urlParams.get("username") + "&session=" + urlParams.get("session"),'_blank');
+    }
     </script>
     <link rel="stylesheet" href="style.css">
 </head>
@@ -246,6 +250,9 @@
                 <li><b>Website</b> -  https://www.webtrafficexchange.co.uk </li>
             </ul>
         </td>
+    </tr>
+    <tr>
+        <td colspan="3" align="center">© webtrafficexchange.co.uk All Rights Reserved.</td>
     </tr>
 </table>
 
