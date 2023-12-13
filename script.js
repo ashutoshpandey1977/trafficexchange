@@ -319,7 +319,7 @@ function initializeIframe(){
     .then(data => {
         if (data['statusCode']==200) {
             document.getElementById("advert").src=data['body']['advert'];
-            
+            setCookie("credit",data['body']['credit'], 1)
         }
         
     })
