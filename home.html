@@ -14,9 +14,8 @@
     <script>
     window.addEventListener("load", initialize);
     function initialize(){
-        const queryString = window.location.search;
-        const urlParams = new URLSearchParams(queryString);
-        document.getElementById("username").innerHTML=urlParams.get("username");
+        checkCookie();
+        document.getElementById("username").innerHTML=getCookie("username");
         // main.js
 
         // POST request using fetch()
@@ -28,8 +27,8 @@
             // Adding body or contents to send
             body: JSON.stringify(
                 {
-                user_name: urlParams.get("username"),
-                session_id: urlParams.get("session")
+                user_name: getCookie("username"),
+                session_id: getCookie("session")
                 }
             ),
 
@@ -51,7 +50,10 @@
             }
 
         })
-        .catch(error =>console.log(error))
+        .catch(error =>{
+            console.log(error);
+            window.location.href="https://www.webtrafficexchange.co.uk";
+        })
 
     }
     setInterval(initialize, 600000);
@@ -122,8 +124,8 @@
             // Adding body or contents to send
             body: JSON.stringify(
                 {
-                user_name: urlParams.get("username"),
-                session_id: urlParams.get("session"),
+                user_name: getCookie("username"),
+                session_id: getCookie("session"),
                 site_url: document.getElementById("site_url").value,
                 action: "ADD"
                 }
@@ -148,7 +150,10 @@
             }
             }
         )
-        .catch(error =>console.log(error))
+        .catch(error =>{
+            console.log(error);
+            window.location.href="https://www.webtrafficexchange.co.uk";
+        })
 
     }
 
@@ -165,8 +170,8 @@
             // Adding body or contents to send
             body: JSON.stringify(
                 {
-                user_name: urlParams.get("username"),
-                session_id: urlParams.get("session"),
+                user_name: getCookie("username"),
+                session_id: getCookie("session"),
                 site_url: site_name,
                 action: action
                 }
@@ -191,13 +196,16 @@
             }
             }
         )
-        .catch(error =>console.log(error))
+        .catch(error =>{
+            console.log(error);
+            window.location.href="https://www.webtrafficexchange.co.uk";
+        })
 
     }
     function start_traffic_exchange(){
         const queryString = window.location.search;
         const urlParams = new URLSearchParams(queryString);
-        window.open('https://www.webtrafficexchange.co.uk/exchange.html?username='+urlParams.get("username") + "&session=" + urlParams.get("session"),'_blank');
+        window.open('https://www.webtrafficexchange.co.uk/exchange.html','_blank');
     }
     </script>
     <link rel="stylesheet" href="style.css">

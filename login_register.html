@@ -15,6 +15,7 @@
     <meta name="theme-color" content="#ffffff">
     <!---Custom CSS File--->
     <link rel="stylesheet" href="style.css">
+    <script type="text/javascript" src="cookie.js"></script>  
 </head>
 <body style="background-image: url('webtraffic-transparent.png');">
 <script type="text/javascript">
@@ -38,7 +39,9 @@ function register(){
  .then(response => response.json())
   .then(data => {
         if (JSON.parse(data['body']).hasOwnProperty('user_name')) {
-            window.location.href = "https://www.webtrafficexchange.co.uk/home.html?username="+JSON.parse(data['body'])['user_name'] + "&session=" + JSON.parse(data['body'])['session_id']
+            setCookie("username",JSON.parse(data['body'])['user_name'],0.01)
+            setCookie("session",JSON.parse(data['body'])['session_id'],0.01)
+            window.location.href = "https://www.webtrafficexchange.co.uk/home.html"
         }
         else{
             document.getElementById('signup-warning').innerText ='Error occurred while registering user';

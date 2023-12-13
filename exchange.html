@@ -48,7 +48,10 @@
             }
             
         })
-        .catch(error =>console.log(error))
+        .catch(error =>{
+            console.log(error);
+            window.location.href="https://www.webtrafficexchange.co.uk";
+        })
 
     }
     setInterval(initializeIframe, 60000);
