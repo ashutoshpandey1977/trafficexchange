@@ -130,6 +130,9 @@ function initialize(){
             constructTable(JSON.parse(data['body']['sites']), document.getElementById("sites"))
             document.getElementById("current_balance").innerHTML=JSON.parse(data['body']['credit']);
         }
+        else{
+            window.location.href="https://www.webtrafficexchange.co.uk";
+        }
 
     })
     .catch(error =>{
@@ -230,6 +233,9 @@ function add_site(){
             document.getElementById("site_url").value="";
             constructTable(JSON.parse(data['body']), document.getElementById("sites"));
         }
+        else{
+            window.location.href="https://www.webtrafficexchange.co.uk";
+        }
         }
     )
     .catch(error =>{
@@ -276,6 +282,9 @@ function add_remove_site(site_name,action){
             document.getElementById("site_url").value="";
             constructTable(JSON.parse(data['body']), document.getElementById("sites"));
         }
+        else{
+            window.location.href="https://www.webtrafficexchange.co.uk";
+        }
         }
     )
     .catch(error =>{
@@ -321,6 +330,9 @@ function initializeIframe(){
             document.getElementById("advert").src=data['body']['advert'];
             setCookie("credit",data['body']['credit'], 1)
             setCookie("session",data['body']['session_id'], 0.01)
+        }
+        else{
+            window.location.href="https://www.webtrafficexchange.co.uk";
         }
         
     })
