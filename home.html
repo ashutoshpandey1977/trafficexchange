@@ -21,10 +21,10 @@
 
         // POST request using fetch()
         fetch("https://os6p24onhg.execute-api.eu-north-1.amazonaws.com/live/search_sites", {
-            
+
             // Adding method type
             method: "POST",
-            
+
             // Adding body or contents to send
             body: JSON.stringify(
                 {
@@ -32,7 +32,7 @@
                 session_id: urlParams.get("session")
                 }
             ),
-            
+
             // Adding headers to the request
             headers: {
                 "Content-type": "application/json; charset=UTF-8"
@@ -45,18 +45,19 @@
         .then(data => {
             if (data['statusCode']==200) {
                 console.log(data);
+                document.getElementById("sites").innerHTML="";
                 constructTable(JSON.parse(data['body']['sites']), document.getElementById("sites"))
                 document.getElementById("current_balance").innerHTML=JSON.parse(data['body']['credit']);
             }
-            
+
         })
         .catch(error =>console.log(error))
 
     }
     setInterval(initialize, 100000);
-    
+
     function constructTable(list, selector) {
- 
+
     // Getting the all column names
         let cols = Headers(list, selector);
 
@@ -99,7 +100,7 @@
                     header.append($('<th/>').html(k));
                 }
             }
-            
+
         }
         header.append($('<th/>').html("ACTION"));
 
@@ -114,10 +115,10 @@
 
         // POST request using fetch()
         fetch("https://os6p24onhg.execute-api.eu-north-1.amazonaws.com/live/sites", {
-            
+
             // Adding method type
             method: "POST",
-            
+
             // Adding body or contents to send
             body: JSON.stringify(
                 {
@@ -127,7 +128,7 @@
                 action: "ADD"
                 }
             ),
-            
+
             // Adding headers to the request
             headers: {
                 "Content-type": "application/json; charset=UTF-8"
@@ -150,17 +151,17 @@
         .catch(error =>console.log(error))
 
     }
-   
+
     function add_remove_site(site_name,action){
         const queryString = window.location.search;
         const urlParams = new URLSearchParams(queryString);
 
         // POST request using fetch()
         fetch("https://os6p24onhg.execute-api.eu-north-1.amazonaws.com/live/sites", {
-            
+
             // Adding method type
             method: "POST",
-            
+
             // Adding body or contents to send
             body: JSON.stringify(
                 {
@@ -170,7 +171,7 @@
                 action: action
                 }
             ),
-            
+
             // Adding headers to the request
             headers: {
                 "Content-type": "application/json; charset=UTF-8"
@@ -193,7 +194,7 @@
         .catch(error =>console.log(error))
 
     }
-    
+
     </script>
     <link rel="stylesheet" href="style.css">
 </head>
@@ -201,7 +202,7 @@
 
 <table width="100%" style="border-collapse:collapse; border-spacing: 30px;">
     <tr>
-        <td align="center">
+        <td align="center" colspan="2">
             <h1><img src="favicon.png" alt="profile"
                 style="vertical-align: middle;width: 50px;height: 50px;border-radius: 50%;">
                  <span style="background: #ddd;">Web Traffic Exchange</span></h1></td>
@@ -213,19 +214,22 @@
     </tr>
     <tr>
         <td >
-            <input id="site_url" type="text" class="text-input" placeholder="Enter your site_url">    
+            <input id="site_url" type="text" class="text-input" placeholder="Enter your site_url">
             <input type="button" class="button" value="Add Site" onclick="add_site()">
         </td>
         <td>
             <input type="button"  value="Earn Minutes" class="button" onclick="start_traffic_exchange()" style="background-image: url(piggy-bank.jpg);background-repeat: no-repeat;  background-position: 10px 10px; padding-left: 42px; vertical-align: middle; "  >
-            <label id="current_balance"> 0 </label>
+
+        </td>
+        <td>
+           <img src="coin-icon-3819.png" style=" border-radius: 50%; width: 70px ; height:70px;"><label id="current_balance"> 0 </label> Credit
         </td>
     </tr>
-    <tr><td colspan="2"><br><br></td></tr>
+    <tr><td colspan="3"><br><br></td></tr>
     <tr>
-        <td colspan="2">
+        <td colspan="3">
             <table align="center" id="sites" border="1" width="100%">
-            </table>      
+            </table>
         </td>
     </tr>
 </table>
