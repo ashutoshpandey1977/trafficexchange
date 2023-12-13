@@ -26,6 +26,17 @@ function setCookie(cname, cvalue, exdays) {
         window.location.href="https://www.webtrafficexchange.co.uk";
     } 
   }
+
+  function deleteAllCookies() {
+    const cookies = document.cookie.split(";");
+
+    for (let i = 0; i < cookies.length; i++) {
+        const cookie = cookies[i];
+        const eqPos = cookie.indexOf("=");
+        const name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
+        document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT";
+    }
+}
 function register(){
     var username=document.getElementById('registration-username').value
     var password=document.getElementById('registration-password').value
@@ -80,7 +91,7 @@ function register(){
            if (JSON.parse(data['body']).hasOwnProperty('user_name')) {
              setCookie("username",JSON.parse(data['body'])['user_name'],60)
              setCookie("session",JSON.parse(data['body'])['session_id'],0.01)
-             window.location.href = window.location.href = "https://www.webtrafficexchange.co.uk/home.html"
+             window.location.href = "https://www.webtrafficexchange.co.uk/home.html"
            }
            else{
                document.getElementById('login-warning').innerText ='Invalid username password';
@@ -92,7 +103,10 @@ function register(){
    });
    }
 
-
+   function logoff(){
+    deleteAllCookies();
+    window.location.href = "https://www.webtrafficexchange.co.uk/index.html"
+   }
 
 
 function initialize(){
