@@ -11,51 +11,9 @@
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="theme-color" content="#ffffff">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script type="text/javascript" src="script.js"></script> 
     <script>
-   
-    function initializeIframe(){
-        const queryString = window.location.search;
-        const urlParams = new URLSearchParams(queryString);
-        
-        // POST request using fetch()
-        fetch("https://os6p24onhg.execute-api.eu-north-1.amazonaws.com/live/exchange", {
-            
-            // Adding method type
-            method: "POST",
-            
-            // Adding body or contents to send
-            body: JSON.stringify(
-                {
-                user_name: urlParams.get("username"),
-                session_id: urlParams.get("session")
-                }
-            ),
-            
-            // Adding headers to the request
-            headers: {
-                "Content-type": "application/json; charset=UTF-8"
-            }
-        })
-
-        // Converting to JSON
-        .then(response => response.json())
-
-        // Displaying results to console
-        .then(data => {
-            if (data['statusCode']==200) {
-                document.getElementById("advert").src=data['body'];
-                
-            }
-            
-        })
-        .catch(error =>{
-            console.log(error);
-            window.location.href="https://www.webtrafficexchange.co.uk";
-        })
-
-    }
-    setInterval(initializeIframe, 60000);
-
+        setInterval(initializeIframe, 60000);
     </script>
      <link rel="stylesheet" href="style.css">
 </head>
