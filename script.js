@@ -109,7 +109,7 @@ function initialize(){
         // Adding body or contents to send
         body: JSON.stringify(
             {
-            user_name: cookie.getCookie("username"),
+            user_name: getCookie("username"),
             session_id: getCookie("session")
             }
         ),
@@ -138,7 +138,7 @@ function initialize(){
     })
 
 }
-setInterval(initialize, 600000);
+
 
 function constructTable(list, selector) {
 
