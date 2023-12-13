@@ -160,7 +160,10 @@ function constructTable(list, selector) {
             if (val == null) val = "";
             row.append($('<td/>').html(val));
         }
-        if(list[i][cols[1]] == "INACTIVE"){
+        if(list[i][cols[1]] == "BLOCKED"){
+            row.addClass("row-blocked");
+        }
+        else if(list[i][cols[1]] == "INACTIVE"){
             row.addClass("row-inactive");
             row.append($('<td/>').html('<input type="button" class="button-row" value="Add" onclick="add_remove_site(\'' + list[i][cols[0]] +'\',\'ADD\')">'));
         }
@@ -342,4 +345,8 @@ function initializeIframe(){
         window.location.href="https://www.webtrafficexchange.co.uk";
     })
 
+}
+
+function blocksite(){
+    add_remove_site(document.getElementById("advert").src,"BLOCK")
 }
