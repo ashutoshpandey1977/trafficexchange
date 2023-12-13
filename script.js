@@ -129,6 +129,7 @@ function initialize(){
             document.getElementById("sites").innerHTML="";
             constructTable(JSON.parse(data['body']['sites']), document.getElementById("sites"))
             document.getElementById("current_balance").innerHTML=JSON.parse(data['body']['credit']);
+            setCookie("credit",data['body']['credit'], 1)
         }
         else{
             window.location.href="https://www.webtrafficexchange.co.uk";
