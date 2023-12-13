@@ -353,5 +353,6 @@ function initializeIframe(){
 }
 
 function blocksite(){
-    add_remove_site(document.getElementById("advert").src,"BLOCK")
+    add_remove_site(document.getElementById("advert").src,"BLOCK");
+    initializeIframe();
 }
