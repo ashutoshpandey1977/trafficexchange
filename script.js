@@ -282,9 +282,14 @@ function add_remove_site(site_name,action){
     .then(data => {
         console.log(data);
         if (data['statusCode']==200) {
-            document.getElementById("sites").innerHTML="";
-            document.getElementById("site_url").value="";
-            constructTable(JSON.parse(data['body']), document.getElementById("sites"));
+            var element =  document.getElementById("sites");
+            if (typeof(element) != 'undefined' && element != null)
+            {
+                element.innerHTML="";
+                element.value="";
+                constructTable(JSON.parse(data['body']), element);
+            }
+            
         }
         else{
             window.location.href="https://www.webtrafficexchange.co.uk";
