@@ -151,11 +151,20 @@ function initialize(){
     // Displaying results to console
     .then(data => {
         if (data['statusCode']==200) {
-            console.log(data);
-            document.getElementById("sites").innerHTML="";
-            constructTable(JSON.parse(data['body']['sites']), document.getElementById("sites"))
-            document.getElementById("current_balance").innerHTML=JSON.parse(data['body']['credit']);
-            setCookie("credit",data['body']['credit'], 1)
+            if(JSON.parse(data['body']['sites']).length == 0){
+                document.getElementById("earn-minute").style.visibility = 'hidden'
+                document.getElementById("credit").style.visibility = 'hidden'
+            }
+            else{
+                document.getElementById("earn-minute").style.visibility = 'visible'
+                document.getElementById("credit").style.visibility = 'visible'
+                console.log(data);
+                document.getElementById("sites").innerHTML="";
+                constructTable(JSON.parse(data['body']['sites']), document.getElementById("sites"))
+                document.getElementById("current_balance").innerHTML=JSON.parse(data['body']['credit']);
+                setCookie("credit",data['body']['credit'], 1)
+            }
+            
         }
         else{
             window.location.href="https://www.webtrafficexchange.co.uk";
@@ -262,6 +271,9 @@ function add_site(){
     .then(data => {
         console.log(data);
         if (data['statusCode']==200) {
+            document.getElementById("earn-minute").style.visibility = 'visible'
+            document.getElementById("credit").style.visibility = 'visible'
+                
             document.getElementById("sites").innerHTML="";
             document.getElementById("site_url").value="";
             constructTable(JSON.parse(data['body']), document.getElementById("sites"));
@@ -311,6 +323,9 @@ function add_remove_site(site_name,action){
     .then(data => {
         console.log(data);
         if (data['statusCode']==200) {
+            document.getElementById("earn-minute").style.visibility = 'visible'
+            document.getElementById("credit").style.visibility = 'visible'
+                
             var element =  document.getElementById("sites");
             if (typeof(element) != 'undefined' && element != null)
             {
