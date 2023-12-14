@@ -22,6 +22,19 @@
     <script>
     window.addEventListener("load", initialize);
     setInterval(function () {document.getElementById("current_balance").innerHTML = getCookie("credit")}, 60000);
+    
+    document.getElementById("username").addEventListener("click", function(e) {
+    document.getElementById("myDropdown").classList.toggle("show");
+    });
+
+
+    // Close the dropdown if the user clicks outside of it
+    window.addEventListener("click", function(event) {
+    if (!event.target.matches('.dropbtn')) {
+        document.querySelectorAll(".dropdown-content.show")
+        .forEach(openDropdown => openDropdown.classList.remove('show'))
+    }
+    });
     </script>
     <link rel="stylesheet" href="style.css">
 </head>
