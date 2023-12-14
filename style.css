@@ -194,7 +194,9 @@ iframe{
       cursor: pointer;
       background: url(avatar.png);
       background-repeat: no-repeat;
-      background-size: 100px 50px;
+      background-size: 50px 50px;
+      background-position: top;
+      background-color: #eee;
     }
     
     .dropdown {
