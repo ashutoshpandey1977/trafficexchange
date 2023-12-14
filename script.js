@@ -371,5 +371,5 @@ function initializeIframe(){
 }
 
 function blocksite(){
-    add_remove_site(getCookie("advert").src,"BLOCK");
+    add_remove_site(getCookie("advert"),"BLOCK");
 }
