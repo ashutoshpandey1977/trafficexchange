@@ -415,7 +415,7 @@ function show_messages(){
 
 function messages(){
     // POST request using fetch()
-    fetch("https://os6p24onhg.execute-api.eu-north-1.amazonaws.com/live/search_sites", {
+    fetch("https://os6p24onhg.execute-api.eu-north-1.amazonaws.com/live/messages", {
 
         // Adding method type
         method: "POST",
