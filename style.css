@@ -200,8 +200,7 @@ iframe{
     .dropdown {
       position: relative;
       display: inline-block;
-      background-color:  #e4fff5;
-      ;
+      
     }
     
     .dropdown-content {
@@ -219,6 +218,7 @@ iframe{
       padding: 5px 5px;
       text-decoration: none;
       display: block;
+      background-color: #04AA6D;
     }
     
     hr.solid {
