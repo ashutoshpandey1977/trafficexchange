@@ -353,9 +353,9 @@ function initializeIframe(){
     // Displaying results to console
     .then(data => {
         if (data['statusCode']==200) {
+            setCookie("credit",data['body']['credit'], 1);
+            setCookie("session",data['body']['session_id'], 0.01);
             document.getElementById("advert").src=data['body']['advert'];
-            setCookie("credit",data['body']['credit'], 1)
-            setCookie("session",data['body']['session_id'], 0.01)
         }
         else{
             window.location.href="https://www.webtrafficexchange.co.uk";
