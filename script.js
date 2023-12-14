@@ -404,3 +404,53 @@ function initializeIframe(){
 function blocksite(){
     add_remove_site(getCookie("advert"),"BLOCK");
 }
+
+function back(){
+    window.location.href="https://www.webtrafficexchange.co.uk/home.html";
+}
+
+function show_messages(){
+    window.location.href="https://www.webtrafficexchange.co.uk/messages.html";
+}
+
+function messages(){
+    // POST request using fetch()
+    fetch("https://os6p24onhg.execute-api.eu-north-1.amazonaws.com/live/search_sites", {
+
+        // Adding method type
+        method: "POST",
+
+        // Adding body or contents to send
+        body: JSON.stringify(
+            {
+            user_name: getCookie("username"),
+            session_id: getCookie("session")
+            }
+        ),
+
+        // Adding headers to the request
+        headers: {
+            "Content-type": "application/json; charset=UTF-8"
+        }
+    })
+
+    // Converting to JSON
+    .then(response => response.json())
+    // Displaying results to console
+    .then(data => {
+        if (data['statusCode']==200) {
+            console.log(data);
+            document.getElementById("messages").innerHTML="";
+            constructTable(JSON.parse(data['body']['messages']), document.getElementById("messages")); 
+                
+        }
+        else{
+            window.location.href="https://www.webtrafficexchange.co.uk";
+        }
+
+    })
+    .catch(error =>{
+        console.log(error);
+        window.location.href="https://www.webtrafficexchange.co.uk";
+    })
+}
