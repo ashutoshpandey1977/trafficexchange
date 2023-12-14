@@ -111,6 +111,18 @@ function register(){
 
 function initialize(){
     checkCookie();
+    document.getElementById("username").addEventListener("click", function(e) {
+        document.getElementById("myDropdown").classList.toggle("show");
+        });
+    
+    
+        // Close the dropdown if the user clicks outside of it
+        window.addEventListener("click", function(event) {
+        if (!event.target.matches('.dropbtn')) {
+            document.querySelectorAll(".dropdown-content.show")
+            .forEach(openDropdown => openDropdown.classList.remove('show'))
+        }
+        });
     document.getElementById("username").innerHTML=getCookie("username");
     // main.js
 
