@@ -355,6 +355,7 @@ function initializeIframe(){
         if (data['statusCode']==200) {
             setCookie("credit",data['body']['credit'], 1);
             setCookie("session",data['body']['session_id'], 0.01);
+            setCookie("advert",data['body']['advert'], 0.01);
             document.getElementById("advert").src=data['body']['advert'];
         }
         else{
@@ -370,5 +371,5 @@ function initializeIframe(){
 }
 
 function blocksite(){
-    add_remove_site(document.getElementById("advert").src,"BLOCK");
+    add_remove_site(getCookie("advert").src,"BLOCK");
 }
