@@ -181,10 +181,10 @@ function initialize(){
 }
 
 
-function constructTable(list, selector) {
+function constructTable(list, selector, append_action=true) {
 
 // Getting the all column names
-    let cols = Headers(list, selector);
+    let cols = Headers(list, selector,append_action);
 
 // Traversing the JSON data
     for (let i = 0; i < list.length; i++) {
@@ -204,16 +204,17 @@ function constructTable(list, selector) {
             row.addClass("row-inactive");
             row.append($('<td/>').html('<input type="button" class="button-row" value="Add" onclick="add_remove_site(\'' + list[i][cols[0]] +'\',\'ADD\')">'));
         }
-        else{
+        else if(list[i][cols[1]] == "ACTIVE"){
             row.addClass("row-active");
             row.append($('<td/>').html('<input type="button" class="button-row" value="remove" onclick="add_remove_site(\'' + list[i][cols[0]] +'\',\'REMOVE\')">'));
         }
+        
         // Adding each row to the table
         $(selector).append(row);
     }
     }
 
-function Headers(list, selector) {
+function Headers(list, selector, append_action) {
     let columns = [];
     let header = $('<tr/>');
 
@@ -230,7 +231,10 @@ function Headers(list, selector) {
         }
 
     }
-    header.append($('<th/>').html("ACTION"));
+    if(append_action){
+        header.append($('<th/>').html("ACTION"));
+    }
+    
 
     // Appending the header to the table
     $(selector).append(header);
@@ -441,7 +445,7 @@ function messages(){
         if (data['statusCode']==200) {
             console.log(data);
             document.getElementById("messages").innerHTML="";
-            constructTable(JSON.parse(data['body']['messages']), document.getElementById("messages")); 
+            constructTable(JSON.parse(data['body']['messages']), document.getElementById("messages"), false); 
                 
         }
         else{
