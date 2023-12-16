@@ -202,10 +202,12 @@ function constructTable(list, selector, append_action=true) {
         }
         else if(list[i][cols[1]] == "INACTIVE"){
             row.addClass("row-inactive");
+            row.append($('<td/>').html('<input type="button" class="button-row" value="view" onclick="viewtestpage(\'' + list[i][cols[0]] +'\')">'));
             row.append($('<td/>').html('<input type="button" class="button-row" value="Add" onclick="add_remove_site(\'' + list[i][cols[0]] +'\',\'ADD\')">'));
         }
         else if(list[i][cols[1]] == "ACTIVE"){
             row.addClass("row-active");
+            row.append($('<td/>').html('<input type="button" class="button-row" value="view" onclick="viewtestpage(\'' + list[i][cols[0]] +'\')">'));
             row.append($('<td/>').html('<input type="button" class="button-row" value="remove" onclick="add_remove_site(\'' + list[i][cols[0]] +'\',\'REMOVE\')">'));
         }
         
@@ -232,6 +234,7 @@ function Headers(list, selector, append_action) {
 
     }
     if(append_action){
+        header.append($('<th/>').html("TEST PAGE"));
         header.append($('<th/>').html("ACTION"));
     }
     
@@ -458,4 +461,9 @@ function messages(){
         console.log(error);
         window.location.href="https://www.webtrafficexchange.co.uk";
     })
+
+    function viewtestpage(advert){
+        sessionStorage.setItem("advert", advert);
+        window.location.href="https://www.webtrafficexchange.co.uk/exchange_test.html";
+    }
 }
