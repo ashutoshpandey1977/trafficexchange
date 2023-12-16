@@ -460,10 +460,10 @@ function messages(){
     .catch(error =>{
         console.log(error);
         window.location.href="https://www.webtrafficexchange.co.uk";
-    })
+    })   
+}
 
-    function viewtestpage(advert){
-        sessionStorage.setItem("advert", advert);
-        window.location.href="https://www.webtrafficexchange.co.uk/exchange_test.html";
-    }
+function viewtestpage(advert){
+    sessionStorage.setItem("advert", advert);
+    window.location.href="https://www.webtrafficexchange.co.uk/exchange_test.html";
 }
