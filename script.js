@@ -465,5 +465,9 @@ function messages(){
 
 function viewtestpage(advert){
     sessionStorage.setItem("advert", advert);
-    window.location.href="https://www.webtrafficexchange.co.uk/exchange_test.html";
+    window.open(
+        'https://www.webtrafficexchange.co.uk/exchange_test.html',
+        '_blank' // <- This is what makes it open in a new window.
+      );
+    
 }
