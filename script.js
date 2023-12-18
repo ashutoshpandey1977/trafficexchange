@@ -357,10 +357,14 @@ function add_remove_site(site_name,action){
     })
 
 }
-function start_traffic_exchange(){
-    const queryString = window.location.search;
-    const urlParams = new URLSearchParams(queryString);
-    window.open('https://www.webtrafficexchange.co.uk/exchange.html','_blank');
+function start_traffic_exchange(type){
+    if(type=='AUTO'){
+        window.open('https://www.webtrafficexchange.co.uk/exchange.html','_blank');
+    }
+    else{
+        window.open('https://www.webtrafficexchange.co.uk/exchange_manual.html','_blank');
+    }
+    
 }
 
 function initializeIframe(type='AUTO'){
