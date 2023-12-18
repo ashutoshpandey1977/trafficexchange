@@ -152,12 +152,14 @@ function initialize(){
     .then(data => {
         if (data['statusCode']==200) {
             if(JSON.parse(data['body']['sites']).length == 0){
-                document.getElementById("earn-minute").style.visibility = 'hidden'
+                document.getElementById("earn-minute-manual").style.visibility = 'hidden'
+                document.getElementById("earn-minute-auto").style.visibility = 'hidden'
                 document.getElementById("credit").style.visibility = 'hidden'
                 document.getElementById("guide-step2").style.visibility = 'hidden'
             }
             else{
-                document.getElementById("earn-minute").style.visibility = 'visible'
+                document.getElementById("earn-minute-manual").style.visibility = 'visible'
+                document.getElementById("earn-minute-auto").style.visibility = 'visible'
                 document.getElementById("credit").style.visibility = 'visible'
                 document.getElementById("guide-step2").style.visibility = 'visible'
                 console.log(data);
@@ -280,7 +282,8 @@ function add_site(){
     .then(data => {
         console.log(data);
         if (data['statusCode']==200) {
-            document.getElementById("earn-minute").style.visibility = 'visible';
+            document.getElementById("earn-minute-manual").style.visibility = 'visible';
+            document.getElementById("earn-minute-auto").style.visibility = 'visible';
             document.getElementById("credit").style.visibility = 'visible';
             document.getElementById("guide-step2").style.visibility = 'visible';
                 
@@ -333,7 +336,8 @@ function add_remove_site(site_name,action){
     .then(data => {
         console.log(data);
         if (data['statusCode']==200) {
-            document.getElementById("earn-minute").style.visibility = 'visible';
+            document.getElementById("earn-minute-manual").style.visibility = 'visible';
+            document.getElementById("earn-minute-auto").style.visibility = 'visible';
             document.getElementById("credit").style.visibility = 'visible';
             document.getElementById("guide-step2").style.visibility = 'visible';
                 
