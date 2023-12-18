@@ -363,7 +363,7 @@ function start_traffic_exchange(){
     window.open('https://www.webtrafficexchange.co.uk/exchange.html','_blank');
 }
 
-function initializeIframe(){
+function initializeIframe(type='AUTO'){
     
     // POST request using fetch()
     fetch("https://os6p24onhg.execute-api.eu-north-1.amazonaws.com/live/exchange", {
@@ -374,8 +374,9 @@ function initializeIframe(){
         // Adding body or contents to send
         body: JSON.stringify(
             {
-            user_name: getCookie("username"),
-            session_id: getCookie("session")
+                user_name: getCookie("username"),
+                session_id: getCookie("session"),
+                type: type
             }
         ),
         

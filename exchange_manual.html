@@ -51,7 +51,7 @@
             event.preventDefault();
             debugger
             if (document.getElementById("cpatchaTextBox").value == code) {
-                initializeIframe()
+                initializeIframe('MANUAL')
                 document.getElementById("fetch_new_advert").style.visibility = 'hidden';
                 setTimeout (function(){
                     document.getElementById("fetch_new_advert").style.visibility = 'visible';
@@ -94,7 +94,7 @@
         <td align="right">
             <div id="captcha">
             </div>
-           <label>Enter code from image</label>
+           <label style="background-color: #eee;">Enter code from image</label>
             <input type="text" placeholder="Captcha" id="cpatchaTextBox"/>
             <button id="fetch_new_advert" onclick="validateCaptcha()">Fetch New Advert</button>
         </td>
