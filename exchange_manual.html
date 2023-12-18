@@ -52,9 +52,9 @@
             debugger
             if (document.getElementById("cpatchaTextBox").value == code) {
                 initializeIframe()
-                document.getElementById(fetch_new_advert).style.visibility = 'hidden';
+                document.getElementById("fetch_new_advert").style.visibility = 'hidden';
                 setTimeout (function(){
-                    document.getElementById(fetch_new_advert).style.visibility = 'visible';
+                    document.getElementById("fetch_new_advert").style.visibility = 'visible';
                     createCaptcha();
                 },60000);
             }else{
