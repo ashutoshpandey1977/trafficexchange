@@ -445,7 +445,7 @@ function getPTCAd(){
              });
              ptc_ads=document.getElementsByClassName("ptc-ad-container");
              for (var i = 0; i < ptc_ads.length; i ++) {
-                ptc_ads[i].style.display = 'visible';
+                ptc_ads[i].style.visibility = 'visible';
             }
             
         }
