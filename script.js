@@ -201,7 +201,7 @@ function constructTable(list, selector, append_action=true) {
             if (val == null) val = "";
             row.append($('<td/>').html(val));
         }
-        if(list[i][cols[1]] == "BLOCKED"){
+        if(list[i][cols[2]] == "BLOCKED"){
             row.addClass("row-blocked");
         }
         else if(list[i][cols[1]] == "INACTIVE"){
@@ -209,7 +209,7 @@ function constructTable(list, selector, append_action=true) {
             row.append($('<td/>').html('<input type="button" class="button-row" value="view" onclick="viewtestpage(\'' + list[i][cols[0]] +'\')">'));
             row.append($('<td/>').html('<input type="button" class="button-row" value="Add" onclick="add_remove_site(\'' + list[i][cols[0]] +'\',\'ADD\')">'));
         }
-        else if(list[i][cols[1]] == "ACTIVE"){
+        else if(list[i][cols[2]] == "ACTIVE"){
             row.addClass("row-active");
             row.append($('<td/>').html('<input type="button" class="button-row" value="view" onclick="viewtestpage(\'' + list[i][cols[0]] +'\')">'));
             row.append($('<td/>').html('<input type="button" class="button-row" value="remove" onclick="add_remove_site(\'' + list[i][cols[0]] +'\',\'REMOVE\')">'));
@@ -248,13 +248,32 @@ function Headers(list, selector, append_action) {
     return columns;
 }
 
-function add_site(){
+function add_site(type='SITE'){
     const queryString = window.location.search;
     const urlParams = new URLSearchParams(queryString);
-    site = document.getElementById("site_url").value;
-    if(site === null || site.trim().length === 0){
-        return;
+    site = ''
+    imageUrl = ''
+    if (type === 'SITE'){
+        site = document.getElementById("site_url").value;
+        if(site === null || site.trim().length === 0){
+            return;
+        }
     }
+    if (type === 'PTC'){
+        site = document.getElementById("ptc_ad_site_url").value;
+        if(site === null || site.trim().length === 0){
+            return;
+        }
+        image_url = document.getElementById("banner_image_url").value;
+        if(image_url === null || image_url.trim().length === 0){
+            return;
+        }
+        reward = document.getElementById("banner_rewards_click").value;
+        if(reward === null || reward.trim().length === 0){
+            return;
+        }
+    }
+    
     // POST request using fetch()
     fetch("https://os6p24onhg.execute-api.eu-north-1.amazonaws.com/live/sites", {
 
@@ -267,6 +286,8 @@ function add_site(){
             user_name: getCookie("username"),
             session_id: getCookie("session"),
             site_url: site,
+            type: type,
+            image_url: image_url,
             action: "ADD"
             }
         ),
