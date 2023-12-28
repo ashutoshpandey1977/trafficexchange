@@ -434,7 +434,7 @@ function getPTCAd(){
             setCookie("credit",data['body']['credit'], 1);
             setCookie("session",data['body']['session_id'], 0.01);
             setCookie("advert",data['body']['advert'], 0.01);
-            document.getElementById("ptc-advert").src=data['body']['advert'];
+            document.getElementById("ptc-advert").src=data['body']['image_url'];
         }
         else{
             window.location.href="https://www.webtrafficexchange.co.uk";
