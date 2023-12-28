@@ -251,8 +251,9 @@ function Headers(list, selector, append_action) {
 function add_site(type='SITE'){
     const queryString = window.location.search;
     const urlParams = new URLSearchParams(queryString);
-    site = ''
-    imageUrl = ''
+    site = '';
+    imageUrl = '';
+    reward = '10';
     if (type === 'SITE'){
         site = document.getElementById("site_url").value;
         if(site === null || site.trim().length === 0){
@@ -399,7 +400,7 @@ function start_traffic_exchange(type){
     
 }
 
-function initializeIframe(type='AUTO'){
+function initializeIframe(type='AUTO', adType='SITE'){
     
     // POST request using fetch()
     fetch("https://os6p24onhg.execute-api.eu-north-1.amazonaws.com/live/exchange", {
@@ -412,7 +413,8 @@ function initializeIframe(type='AUTO'){
             {
                 user_name: getCookie("username"),
                 session_id: getCookie("session"),
-                type: type
+                type: type,
+                adType: adType
             }
         ),
         
