@@ -38,6 +38,7 @@
     <script type="text/javascript" src="script.js"></script>  
     <script>
     window.addEventListener("load", initialize);
+    window.addEventListener("load",  getPTCAd);
     setInterval(function () {document.getElementById("current_balance").innerHTML = getCookie("credit")}, 60000);
     
     
@@ -114,14 +115,7 @@
     <tr><td colspan="3"><br><br></td></tr>
 
     <tr><td colspan="3">
-       <!-- <div class="container">
-            <img id="ptc-advert" src="" target="_blank" width="400" height="400"/>
-            <div class="text-block">
-              <h4>Click & Earn</h4>
-              <p><span id="reward"></span> Tokens</p>
-            </div>
-          </div>-->
-        
+        <img id="ptc-advert" src="" target="_blank" width="400" height="400"/>
     </td>
     </tr>
     <tr>
