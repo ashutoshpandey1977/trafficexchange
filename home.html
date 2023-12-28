@@ -27,6 +27,14 @@
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <title>webtrafficexchange.co.uk - Your Traffic Exchange, 1:1 Exchange Ratio, Manual Surfing, Innovative Referral Program. FREE Traffic!</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+  <script>
+  $( function() {
+    $( "#tabs" ).tabs();
+  } );
+  </script>
     <script type="text/javascript" src="script.js"></script>  
     <script>
     window.addEventListener("load", initialize);
@@ -61,13 +69,32 @@
     </tr>
     <tr>
         <td >
-            <input id="site_url" type="text" class="text-input" placeholder="Enter your site_url">
-            <input type="button" class="button" value="Add Your Site" onclick="add_site()">
+            <div id="tabs">
+                <ul>
+                  <li><a href="#tabs-1">Add Site</a></li>
+                  <li><a href="#tabs-2">PTC Ad</a></li>
+                </ul>
+                <div id="tabs-1">
+                    <p>
+                        <input id="site_url" type="text" class="text-input" placeholder="Enter your site_url">
+                        <input type="button" class="button" value="Add Your Site" onclick="add_site()">
+                    </p>
+                </div>
+                <div id="tabs-2">
+                  <p>
+                    <input id="ptc_ad_site_url" type="text" class="text-input" placeholder="Enter your site_url">
+                    <input id="banner_image_url" type="text" class="text-input" placeholder="Enter your banner_image_url">
+                    <input type="button" class="button" value="Add Your Site" onclick="add_banner()">
+                </p>
+                </div>
+                
+              </div>
+           
         </td>
         <td>
             <input type="button"  id="earn-minute-manual" value="Start Manual Surfing" class="button" onclick="start_traffic_exchange('MANUAL')" style="background-image: url(piggy-bank.jpg);background-repeat: no-repeat;  background-position: 10px 10px; padding-left: 42px; vertical-align: middle; visibility: hidden;"  >
             <input type="button"  id="earn-minute-auto" value="Start Auto Surfing" class="button" onclick="start_traffic_exchange('AUTO')" style="background-image: url(piggy-bank.jpg);background-repeat: no-repeat;  background-position: 10px 10px; padding-left: 42px; vertical-align: middle; visibility: hidden;"  >
-            <input type="button"  id="buy-minute" value="Buy Credit" class="button" onclick="window.location.href='https://www.webtrafficexchange.co.uk/buy_credit.html'" style="background-color: #FFAA6D;"  >
+            <input type="button"  id="buy-minute" value="Buy Credit" class="button" onclick="window.location.href='https://www.webtrafficexchange.co.uk/buy_credit.html'" style="background-color: #FFAA6D; visibility: hidden;"  >
 
         </td>
         <td>
