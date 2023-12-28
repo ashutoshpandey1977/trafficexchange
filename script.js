@@ -58,7 +58,7 @@ function register(){
      .then(data => {
            if (JSON.parse(data['body']).hasOwnProperty('user_name')) {
                setCookie("username",JSON.parse(data['body'])['user_name'],60)
-               setCookie("session",JSON.parse(data['body'])['session_id'],0.01)
+               setCookie("session",JSON.parse(data['body'])['session_id'],1)
                window.location.href = "https://www.webtrafficexchange.co.uk/home.html"
            }
            else{
@@ -432,7 +432,7 @@ function getPTCAd(){
     .then(data => {
         if (data['statusCode']==200) {
             setCookie("credit",data['body']['credit'], 1);
-            setCookie("session",data['body']['session_id'], 0.01);
+            setCookie("session",data['body']['session_id'], 1);
             setCookie("advert",data['body']['advert'], 0.01);
             image=document.getElementById("ptc-advert") 
             document.getElementById("ptc-advert").src=data['body']['image_url'];
@@ -487,7 +487,7 @@ function initializeIframe(type='AUTO', adType='SITE'){
     .then(data => {
         if (data['statusCode']==200) {
             setCookie("credit",data['body']['credit'], 1);
-            setCookie("session",data['body']['session_id'], 0.01);
+            setCookie("session",data['body']['session_id'], 1);
             setCookie("advert",data['body']['advert'], 0.01);
             document.getElementById("advert").src=data['body']['advert'];
             document.getElementById("site_url").innerHTML=data['body']['advert'];
