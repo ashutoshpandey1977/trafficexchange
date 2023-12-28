@@ -314,6 +314,8 @@ function add_site(type='SITE'){
                 
             document.getElementById("sites").innerHTML="";
             document.getElementById("site_url").value="";
+            document.getElementById("ptc_ad_site_url").value="";
+            document.getElementById("banner_image_url").value="";
             constructTable(JSON.parse(data['body']), document.getElementById("sites"));
         }
         else{
