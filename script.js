@@ -443,6 +443,7 @@ function getPTCAd(){
                     '_blank' // <- This is what makes it open in a new window.
                   );
              });
+             document.getElementsByClassName("ptc-ad-container").style.visibility = 'visible'
         }
         else{
             window.location.href="https://www.webtrafficexchange.co.uk";
