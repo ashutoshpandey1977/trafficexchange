@@ -434,7 +434,7 @@ function getPTCAd(){
             setCookie("credit",data['body']['credit'], 1);
             setCookie("session",data['body']['session_id'], 1);
             setCookie("advert",data['body']['advert'], 0.01);
-            image=document.getElementById("ptc-advert") 
+            image=document.getElementById("ptc-advert") ;
             document.getElementById("ptc-advert").src=data['body']['image_url'];
             document.getElementById("reward").innerHTML=data['body']['reward'];
             image.addEventListener("click", () => {
@@ -443,7 +443,11 @@ function getPTCAd(){
                     '_blank' // <- This is what makes it open in a new window.
                   );
              });
-             document.getElementsByClassName("ptc-ad-container").style.visibility = 'visible'
+             ptc_ads=document.getElementsByClassName("ptc-ad-container");
+             for (var i = 0; i < ptc_ads.length; i ++) {
+                ptc_ads[i].style.display = 'visible';
+            }
+            
         }
         else{
             window.location.href="https://www.webtrafficexchange.co.uk";
