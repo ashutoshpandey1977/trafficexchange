@@ -400,6 +400,54 @@ function start_traffic_exchange(type){
     
 }
 
+function getPTCAd(){
+    
+    // POST request using fetch()
+    fetch("https://os6p24onhg.execute-api.eu-north-1.amazonaws.com/live/exchange", {
+        
+        // Adding method type
+        method: "POST",
+        
+        // Adding body or contents to send
+        body: JSON.stringify(
+            {
+                user_name: getCookie("username"),
+                session_id: getCookie("session"),
+                type: 'AUTO',
+                adType: 'PTC'
+            }
+        ),
+        
+        // Adding headers to the request
+        headers: {
+            "Content-type": "application/json; charset=UTF-8"
+        }
+    })
+
+    // Converting to JSON
+    .then(response => response.json())
+
+    // Displaying results to console
+    .then(data => {
+        if (data['statusCode']==200) {
+            setCookie("credit",data['body']['credit'], 1);
+            setCookie("session",data['body']['session_id'], 0.01);
+            setCookie("advert",data['body']['advert'], 0.01);
+            document.getElementById("ptc-advert").src=data['body']['advert'];
+            document.getElementById("site_url").innerHTML=data['body']['advert'];
+        }
+        else{
+            window.location.href="https://www.webtrafficexchange.co.uk";
+        }
+        
+    })
+    .catch(error =>{
+        console.log(error);
+        window.location.href="https://www.webtrafficexchange.co.uk";
+    })
+
+}
+
 function initializeIframe(type='AUTO', adType='SITE'){
     
     // POST request using fetch()
