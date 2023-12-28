@@ -111,6 +111,7 @@ function register(){
 
 function initialize(){
     checkCookie();
+
     document.getElementById("username").addEventListener("click", function(e) {
         document.getElementById("myDropdown").classList.toggle("show");
         });
@@ -180,8 +181,8 @@ function initialize(){
     .catch(error =>{
         console.log(error);
         window.location.href="https://www.webtrafficexchange.co.uk";
-    })
-
+    });
+    getPTCAd();
 }
 
 
