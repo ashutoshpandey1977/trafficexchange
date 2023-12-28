@@ -434,8 +434,15 @@ function getPTCAd(){
             setCookie("credit",data['body']['credit'], 1);
             setCookie("session",data['body']['session_id'], 0.01);
             setCookie("advert",data['body']['advert'], 0.01);
+            image=document.getElementById("ptc-advert") 
             document.getElementById("ptc-advert").src=data['body']['image_url'];
             document.getElementById("reward").innerHTML=data['body']['reward'];
+            image.addEventListener("click", () => {
+                window.open(
+                    data['body']['advert'],
+                    '_blank' // <- This is what makes it open in a new window.
+                  );
+             });
         }
         else{
             window.location.href="https://www.webtrafficexchange.co.uk";
