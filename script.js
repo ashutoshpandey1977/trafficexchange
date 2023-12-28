@@ -288,6 +288,7 @@ function add_site(type='SITE'){
             site_url: site,
             type: type,
             image_url: image_url,
+            reward: reward,
             action: "ADD"
             }
         ),
