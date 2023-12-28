@@ -182,7 +182,7 @@ function initialize(){
         console.log(error);
         window.location.href="https://www.webtrafficexchange.co.uk";
     });
-    getPTCAd();
+   // getPTCAd();
 }
 
 
