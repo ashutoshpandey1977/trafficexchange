@@ -465,11 +465,9 @@ function getPTCAd(){
 }
 
 function click_ptc_advert(evt){
-    advert =evt.currentTarget.advert
-    
     var oneMinutes = 60 * 1,
     display = document.querySelector('#time');
-    startTimer(oneMinutes, display);
+    startTimer(evt.currentTarget.advert, oneMinutes, display);
     
 }
 
