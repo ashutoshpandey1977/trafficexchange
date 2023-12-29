@@ -446,7 +446,7 @@ function getPTCAd(advert ='', advertiser = '', reward=0){
                 image.addEventListener("click", click_ptc_advert);
                 image.advert=body[i]['site_url'];
                 image.reward = body[i]['reward'];
-                image.advertiser = body[i][user_name];
+                image.advertiser = body[i]['user_name'];
             } 
              ptc_ads=document.getElementsByClassName("ptc-ad-container");
              for (var i = 0; i < ptc_ads.length; i ++) {
