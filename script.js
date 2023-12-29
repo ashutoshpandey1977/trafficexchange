@@ -433,15 +433,16 @@ function getPTCAd(){
     // Displaying results to console
     .then(data => {
         if (data['statusCode']==200) {
-            setCookie("credit",data['body'][0]['credit'], 1);
-            setCookie("session",data['body'][0]['session_id'], 1);
-            for (var i=0;i<data['body'].length;i++){
+            body = JSON.parse(data['body'])
+            setCookie("credit",body[0]['credit'], 1);
+            setCookie("session",body[0]['session_id'], 1);
+            for (var i=0;i<body.length;i++){
                 image=document.getElementById("ptc-advert"+i) ;
-                image.src=data['body']['image_url'];
-                document.getElementById("reward"+i).innerHTML=data['body'][i]['reward'];
+                image.src=body[i]['image_url'];
+                document.getElementById("reward"+i).innerHTML=body[i]['reward'];
                 image.addEventListener("click", click_ptc_advert);
-                image.advert=data['body'][i]['site_url'];
-                image.reward = image.data['body'][i]['reward']
+                image.advert=body[i]['site_url'];
+                image.reward = body[i]['reward']
             }
             
             
