@@ -402,7 +402,6 @@ function start_traffic_exchange(type){
 }
 
 function getPTCAd(){
-    clearInterval
     
     // POST request using fetch()
     fetch("https://os6p24onhg.execute-api.eu-north-1.amazonaws.com/live/exchange", {
