@@ -433,13 +433,18 @@ function getPTCAd(){
     // Displaying results to console
     .then(data => {
         if (data['statusCode']==200) {
-            setCookie("credit",data['body']['credit'], 1);
-            setCookie("session",data['body']['session_id'], 1);
-            setCookie("advert",data['body']['advert'], 0.01);
-            image=document.getElementById("ptc-advert") ;
-            document.getElementById("ptc-advert").src=data['body']['image_url'];
-            document.getElementById("reward").innerHTML=data['body']['reward'];
-            image.addEventListener("click", click_ptc_advert);
+            setCookie("credit",data['body'][0]['credit'], 1);
+            setCookie("session",data['body'][0]['session_id'], 1);
+            for (var i=0;i<data['body'].length;i++){
+                image=document.getElementById("ptc-advert"+i) ;
+                image.src=data['body']['image_url'];
+                document.getElementById("reward"+i).innerHTML=data['body'][i]['reward'];
+                image.addEventListener("click", click_ptc_advert);
+                image.advert=data['body'][i]['site_url'];
+                image.reward = image.data['body'][i]['reward']
+            }
+            
+            
              ptc_ads=document.getElementsByClassName("ptc-ad-container");
              for (var i = 0; i < ptc_ads.length; i ++) {
                 ptc_ads[i].style.visibility = 'visible';
@@ -458,8 +463,8 @@ function getPTCAd(){
 
 }
 
-function click_ptc_advert(){
-    advert = getCookie("advert")
+function click_ptc_advert(evt){
+    advert =evt.currentTarget.advert
     
     var oneMinutes = 60 * 1,
     display = document.querySelector('#time');
@@ -467,7 +472,7 @@ function click_ptc_advert(){
     
 }
 
-function startTimer(duration, display) {
+function startTimer(advert, duration, display) {
     document.getElementById("warning").style.visibility="hidden";
     for (var i = 0; i < ptc_ads.length; i ++) {
         ptc_ads[i].style.visibility = 'hidden';
