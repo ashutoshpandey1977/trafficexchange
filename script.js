@@ -470,7 +470,7 @@ function click_ptc_advert(){
 
 function startTimer(duration, display) {
     var timer = duration, minutes, seconds;
-    var timer = setInterval(function () {
+    var countDownTimer = setInterval(function () {
         minutes = parseInt(timer / 60, 10);
         seconds = parseInt(timer % 60, 10);
 
@@ -484,7 +484,7 @@ function startTimer(duration, display) {
         }
     }, 1000);
     setTimeout( function() {
-        clearInterval(timer);
+        clearInterval(countDownTimer);
         getPTCAd(); 
         }, 60000);
 }
