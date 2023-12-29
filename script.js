@@ -443,9 +443,7 @@ function getPTCAd(){
                 image.addEventListener("click", click_ptc_advert);
                 image.advert=body[i]['site_url'];
                 image.reward = body[i]['reward']
-            }
-            
-            
+            } 
              ptc_ads=document.getElementsByClassName("ptc-ad-container");
              for (var i = 0; i < ptc_ads.length; i ++) {
                 ptc_ads[i].style.visibility = 'visible';
@@ -461,14 +459,12 @@ function getPTCAd(){
         console.log(error);
         window.location.href="https://www.webtrafficexchange.co.uk";
     })
-
 }
 
 function click_ptc_advert(evt){
     var oneMinutes = 60 * 1,
     display = document.querySelector('#time');
-    startTimer(evt.currentTarget.advert, oneMinutes, display);
-    
+    startTimer(evt.currentTarget.advert, oneMinutes, display); 
 }
 
 function startTimer(advert, duration, display) {
