@@ -404,6 +404,7 @@ function start_traffic_exchange(type){
 function getPTCAd(){
     display = document.querySelector('#time');
     display.innerHTML="1:00"
+    document.getElementById("warning").style.visibility="hidden";
     // POST request using fetch()
     fetch("https://os6p24onhg.execute-api.eu-north-1.amazonaws.com/live/exchange", {
         
@@ -485,7 +486,7 @@ function startTimer(duration, display) {
 
         display.textContent = minutes + ":" + seconds;
         if(ptc_window_handle.closed){
-            document.getElementById("warning").innerHTML="You closed PTC window too soon.";
+            document.getElementById("warning").innerHTML="You closed PTC Ad window too soon.";
             document.getElementById("warning").style.visibility="visible";
         }
         if (--timer < 0) {
