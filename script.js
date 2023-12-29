@@ -458,10 +458,7 @@ function getPTCAd(){
 
 function click_ptc_advert(){
     advert = getCookie("advert")
-    handle = window.open(
-        advert,
-        '_blank' 
-      );
+    
     var oneMinutes = 60 * 1,
     display = document.querySelector('#time');
     startTimer(oneMinutes, display);
@@ -469,6 +466,11 @@ function click_ptc_advert(){
 }
 
 function startTimer(duration, display) {
+    document.getElementById("warning").style.visibility="hidden";
+    ptc_window_handle = window.open(
+        advert,
+        '_blank' 
+      );
     var timer = duration, minutes, seconds;
     var countDownTimer = setInterval(function () {
         minutes = parseInt(timer / 60, 10);
@@ -478,7 +480,10 @@ function startTimer(duration, display) {
         seconds = seconds < 10 ? "0" + seconds : seconds;
 
         display.textContent = minutes + ":" + seconds;
-
+        if(ptc_window_handle.closed){
+            document.getElementById("warning").innerHTML="You closed PTC window too soon.";
+            document.getElementById("warning").style.visibility="visible";
+        }
         if (--timer < 0) {
             timer = duration;
         }
