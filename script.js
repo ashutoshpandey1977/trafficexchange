@@ -419,7 +419,7 @@ function getPTCAd(advert ='', advertiser = '', reward=0){
                 type: 'AUTO',
                 adType: 'PTC',
                 advert: advert,
-                advertiser: '',
+                advertiser: advertiser,
                 reward: reward
             }
         ),
