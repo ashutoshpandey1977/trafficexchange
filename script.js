@@ -401,7 +401,7 @@ function start_traffic_exchange(type){
     
 }
 
-function getPTCAd(){
+function getPTCAd(advertiser = '', reward=0){
     display = document.querySelector('#time');
     display.innerHTML="1:00"
     document.getElementById("warning").style.visibility="hidden";
@@ -417,7 +417,10 @@ function getPTCAd(){
                 user_name: getCookie("username"),
                 session_id: getCookie("session"),
                 type: 'AUTO',
-                adType: 'PTC'
+                adType: 'PTC',
+                advertiser: '',
+                reward: reward
+
             }
         ),
         
@@ -442,7 +445,8 @@ function getPTCAd(){
                 document.getElementById("reward"+i).innerHTML=body[i]['reward'];
                 image.addEventListener("click", click_ptc_advert);
                 image.advert=body[i]['site_url'];
-                image.reward = body[i]['reward']
+                image.reward = body[i]['reward'];
+                image.advertiser = body[i][user_name];
             } 
              ptc_ads=document.getElementsByClassName("ptc-ad-container");
              for (var i = 0; i < ptc_ads.length; i ++) {
@@ -464,10 +468,10 @@ function getPTCAd(){
 function click_ptc_advert(evt){
     var oneMinutes = 60 * 1,
     display = document.querySelector('#time');
-    startTimer(evt.currentTarget.advert, oneMinutes, display); 
+    startTimer(evt.currentTarget.advert, evt.currentTarget.advertiser, evt.reward.reward, oneMinutes, display); 
 }
 
-function startTimer(advert, duration, display) {
+function startTimer(advert, advertiser, reward, duration, display) {
     document.getElementById("warning").style.visibility="hidden";
     for (var i = 0; i < ptc_ads.length; i ++) {
         ptc_ads[i].style.visibility = 'hidden';
@@ -495,7 +499,7 @@ function startTimer(advert, duration, display) {
     }, 1000);
     setTimeout( function() {
         clearInterval(countDownTimer);
-        getPTCAd(); 
+        getPTCAd(adevertiser, reward); 
         }, 60000);
 }
 function initializeIframe(type='AUTO', adType='SITE'){
