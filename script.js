@@ -402,6 +402,7 @@ function start_traffic_exchange(type){
 }
 
 function getPTCAd(){
+    clearInterval
     
     // POST request using fetch()
     fetch("https://os6p24onhg.execute-api.eu-north-1.amazonaws.com/live/exchange", {
@@ -470,7 +471,7 @@ function click_ptc_advert(){
 
 function startTimer(duration, display) {
     var timer = duration, minutes, seconds;
-    setInterval(function () {
+    var timer = setInterval(function () {
         minutes = parseInt(timer / 60, 10);
         seconds = parseInt(timer % 60, 10);
 
@@ -483,6 +484,10 @@ function startTimer(duration, display) {
             timer = duration;
         }
     }, 1000);
+    setTimeout( function() {
+        clearInterval(timer);
+        getPTCAd(); 
+        }, 60000);
 }
 function initializeIframe(type='AUTO', adType='SITE'){
     
