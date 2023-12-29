@@ -499,7 +499,9 @@ function startTimer(advert, advertiser, reward, duration, display) {
     }, 1000);
     setTimeout( function() {
         clearInterval(countDownTimer);
-        getPTCAd(advert, advertiser, reward); 
+        if(!ptc_window_handle.closed){
+            getPTCAd(advert, advertiser, reward); 
+        }
         }, 60000);
 }
 function initializeIframe(type='AUTO', adType='SITE'){
