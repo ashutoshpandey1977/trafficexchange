@@ -467,6 +467,9 @@ function click_ptc_advert(){
 
 function startTimer(duration, display) {
     document.getElementById("warning").style.visibility="hidden";
+    for (var i = 0; i < ptc_ads.length; i ++) {
+        ptc_ads[i].style.visibility = 'hidden';
+    }
     ptc_window_handle = window.open(
         advert,
         '_blank' 
