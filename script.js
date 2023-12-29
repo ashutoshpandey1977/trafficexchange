@@ -182,7 +182,7 @@ function initialize(){
         console.log(error);
         window.location.href="https://www.webtrafficexchange.co.uk";
     });
-   // getPTCAd();
+  
 }
 
 
@@ -401,7 +401,7 @@ function start_traffic_exchange(type){
     
 }
 
-function getPTCAd(advertiser = '', reward=0){
+function getPTCAd(advert ='', advertiser = '', reward=0){
     display = document.querySelector('#time');
     display.innerHTML="1:00"
     document.getElementById("warning").style.visibility="hidden";
@@ -418,9 +418,9 @@ function getPTCAd(advertiser = '', reward=0){
                 session_id: getCookie("session"),
                 type: 'AUTO',
                 adType: 'PTC',
+                advert: advert,
                 advertiser: '',
                 reward: reward
-
             }
         ),
         
@@ -499,7 +499,7 @@ function startTimer(advert, advertiser, reward, duration, display) {
     }, 1000);
     setTimeout( function() {
         clearInterval(countDownTimer);
-        getPTCAd(adevertiser, reward); 
+        getPTCAd(advert, adevertiser, reward); 
         }, 60000);
 }
 function initializeIframe(type='AUTO', adType='SITE'){
