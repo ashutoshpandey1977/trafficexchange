@@ -437,12 +437,7 @@ function getPTCAd(){
             image=document.getElementById("ptc-advert") ;
             document.getElementById("ptc-advert").src=data['body']['image_url'];
             document.getElementById("reward").innerHTML=data['body']['reward'];
-            image.addEventListener("click", () => {
-                window.open(
-                    data['body']['advert'],
-                    '_blank' // <- This is what makes it open in a new window.
-                  );
-             });
+            image.addEventListener("click", click_ptc_advert);
              ptc_ads=document.getElementsByClassName("ptc-ad-container");
              for (var i = 0; i < ptc_ads.length; i ++) {
                 ptc_ads[i].style.visibility = 'visible';
@@ -461,6 +456,34 @@ function getPTCAd(){
 
 }
 
+function click_ptc_advert(){
+    advert = getCookie("advert")
+    handle = window.open(
+        advert,
+        '_blank' 
+      );
+    var oneMinutes = 60 * 1,
+    display = document.querySelector('#time');
+    startTimer(oneMinutes, display);
+    
+}
+
+function startTimer(duration, display) {
+    var timer = duration, minutes, seconds;
+    setInterval(function () {
+        minutes = parseInt(timer / 60, 10);
+        seconds = parseInt(timer % 60, 10);
+
+        minutes = minutes < 10 ? "0" + minutes : minutes;
+        seconds = seconds < 10 ? "0" + seconds : seconds;
+
+        display.textContent = minutes + ":" + seconds;
+
+        if (--timer < 0) {
+            timer = duration;
+        }
+    }, 1000);
+}
 function initializeIframe(type='AUTO', adType='SITE'){
     
     // POST request using fetch()
