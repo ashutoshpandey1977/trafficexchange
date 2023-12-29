@@ -439,6 +439,7 @@ function getPTCAd(advert ='', advertiser = '', reward=0){
             body = JSON.parse(data['body'])
             setCookie("credit",body[0]['credit'], 1);
             setCookie("session",body[0]['session_id'], 1);
+            document.getElementById("current_balance").innerHTML=JSON.parse(body[0]['credit']);
             for (var i=0;i<body.length;i++){
                 image=document.getElementById("ptc-advert"+i) ;
                 image.src=body[i]['image_url'];
