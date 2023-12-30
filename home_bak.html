@@ -27,12 +27,15 @@
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <title>webtrafficexchange.co.uk - Your Traffic Exchange, 1:1 Exchange Ratio, Manual Surfing, Innovative Referral Program. FREE Traffic!</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="https:////code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
      <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
   <script>
   $( function() {
     $( "#tabs" ).tabs();
+  } );
+  $( function() {
+    $( "#accordion" ).accordion();
   } );
   </script>
     <script type="text/javascript" src="script.js"></script>  
@@ -188,27 +191,34 @@
     <tr><td colspan="3" bgcolor="#FFFFEF"><h3>My Sites</h3>
     <tr>
         <td colspan="3">
-            <table align="center" id="sites" border="1" width="100%">
+            <div id="accordion">
+                <h3>MY Sites</h3>
+                <div>
+                  <p>
+                    <table align="center" id="sites" border="1" width="100%">
+                  </p>
+                </div>
+                <h3>User Guide</h3>
+                <div>
+                  <p>
+                    <ul>
+                        <li> <b>Step 1</b> Add your Site using above input box - If your site doesn't violate our Terms of Service, then it'll be accepted.</li>
+                        <li><span id="guide-step2" style="visibility: hidden;"> <b>Step 2</b> Click Start Surfing Button - Get one vistor for every site you visit. 1 Manual Surf Minute = 5 Auto Surf Minute</li></span>
+                    </ul>
+                    <h4>Example Site URL</h4>
+                    <ul>
+                        <li><b>Youtube video </b>-  https://www.youtube.com/embed/kB0_lTja_Qo?autoplay=1 </li>
+                        <li><b>Website</b> -  https://www.webtrafficexchange.co.uk </li>
+                    </ul>
+                  </p>
+                </div>
+                
+              </div>
+           
             </table>
         </td>
     </tr>
-    <tr><td colspan="3" bgcolor="#FFFFEF"><br>
-    </td></tr>
-    <tr>
-        <td colspan="3" align="left">
-           <h3>User Guide</h3>
-            <ul>
-                <li> <b>Step 1</b> Add your Site using above input box - If your site doesn't violate our Terms of Service, then it'll be accepted.</li>
-                <li><span id="guide-step2" style="visibility: hidden;"> <b>Step 2</b> Click Start Surfing Button - Get one vistor for every site you visit. 1 Manual Surf Minute = 5 Auto Surf Minute</li></span>
-            </ul>
-            <h4>Example Site URL</h4>
-            <ul>
-                <li><b>Youtube video </b>-  https://www.youtube.com/embed/kB0_lTja_Qo?autoplay=1 </li>
-                <li><b>Website</b> -  https://www.webtrafficexchange.co.uk </li>
-            </ul>
-           
-        </td>
-    </tr>
+   
     <tr>
         <td colspan="3" align="center">© webtrafficexchange.co.uk All Rights Reserved.  <a href="term.html">Terms of service</a> &nbsp; <a href="https://web-traffic-exchange.blogspot.com/" target="_blank">Tutorial</a></td>
     </tr>
