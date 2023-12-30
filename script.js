@@ -443,7 +443,7 @@ function getPTCAd(advert ='', advertiser = '', reward=0){
             for (var i=0;i<body.length;i++){
                 image=document.getElementById("ptc-advert"+i) ;
                 document.getElementById("text"+i).innerHTML = body[i]['description'].substring(0, 50);
-                document.getElementById("reward"+i).innerHTML=body[i]['reward'];
+                document.getElementById("reward"+i).innerHTML=body[i]['reward'] + " TOKENS";
                 image.addEventListener("click", click_ptc_advert);
                 image.advert=body[i]['site_url'];
                 image.reward = body[i]['reward'];
