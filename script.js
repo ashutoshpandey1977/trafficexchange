@@ -442,7 +442,7 @@ function getPTCAd(advert ='', advertiser = '', reward=0){
             document.getElementById("current_balance").innerHTML=body[0]['credit'];
             ptc_ads=document.getElementsByClassName("ptc-ad-container");
              
-            for (var i=0;i<3;i++){
+            for (var i=0;i<ptc_ads.length;i++){
                 image=document.getElementById("ptc-advert"+i) ;
                 document.getElementById("text"+i).innerHTML = body[i]['description'].substring(0, 50);
                 document.getElementById("reward"+i).innerHTML=body[i]['reward'] + " TOKENS";
@@ -458,13 +458,13 @@ function getPTCAd(advert ='', advertiser = '', reward=0){
         }
         else{
              console.log(data);
-     //       window.location.href="https://www.webtrafficexchange.co.uk";
+            window.location.href="https://www.webtrafficexchange.co.uk";
         }
         
     })
     .catch(error =>{
         console.log(error);
-   //     window.location.href="https://www.webtrafficexchange.co.uk";
+        window.location.href="https://www.webtrafficexchange.co.uk";
     })
 }
 
