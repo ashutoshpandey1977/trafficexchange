@@ -153,18 +153,17 @@ function initialize(){
     .then(data => {
         if (data['statusCode']==200) {
             if(JSON.parse(data['body']['sites']).length == 0){
-                document.getElementById("earn-minute-manual").style.visibility = 'hidden'
-                document.getElementById("earn-minute-auto").style.visibility = 'hidden'
-                document.getElementById("buy-minute").style.visibility = 'hidden'
-                document.getElementById("credit").style.visibility = 'hidden'
-                document.getElementById("guide-step2").style.visibility = 'hidden'
+                document.getElementById("earn-minute-manual").style.visibility = 'hidden';
+                document.getElementById("earn-minute-auto").style.visibility = 'hidden';
+                document.getElementById("buy-minute").style.visibility = 'hidden';
+                document.getElementById("credit").style.visibility = 'hidden';
+                
             }
             else{
-                document.getElementById("earn-minute-manual").style.visibility = 'visible'
-                document.getElementById("earn-minute-auto").style.visibility = 'visible'
-                document.getElementById("buy-minute").style.visibility = 'visible'
-                document.getElementById("credit").style.visibility = 'visible'
-                document.getElementById("guide-step2").style.visibility = 'visible'
+                document.getElementById("earn-minute-manual").style.visibility = 'visible';
+                document.getElementById("earn-minute-auto").style.visibility = 'visible';
+                document.getElementById("buy-minute").style.visibility = 'visible';
+                document.getElementById("credit").style.visibility = 'visible';
                 console.log(data);
                 document.getElementById("sites").innerHTML="";
                 constructTable(JSON.parse(data['body']['sites']), document.getElementById("sites"))
@@ -310,9 +309,8 @@ function add_site(type='SITE'){
         if (data['statusCode']==200) {
             document.getElementById("earn-minute-manual").style.visibility = 'visible';
             document.getElementById("earn-minute-auto").style.visibility = 'visible';
-            document.getElementById("buy-minute").style.visibility = 'visible'
+            document.getElementById("buy-minute").style.visibility = 'visible';
             document.getElementById("credit").style.visibility = 'visible';
-            document.getElementById("guide-step2").style.visibility = 'visible';
                 
             document.getElementById("sites").innerHTML="";
             document.getElementById("site_url").value="";
@@ -367,9 +365,8 @@ function add_remove_site(site_name,action){
         if (data['statusCode']==200) {
             document.getElementById("earn-minute-manual").style.visibility = 'visible';
             document.getElementById("earn-minute-auto").style.visibility = 'visible';
-            document.getElementById("buy-minute").style.visibility = 'visible'
+            document.getElementById("buy-minute").style.visibility = 'visible';
             document.getElementById("credit").style.visibility = 'visible';
-            document.getElementById("guide-step2").style.visibility = 'visible';
                 
             var element =  document.getElementById("sites");
             if (typeof(element) != 'undefined' && element != null)
