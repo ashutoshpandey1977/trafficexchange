@@ -10,6 +10,7 @@
     gtag('config', 'G-D8EN2TC4FP');
     </script>
     <meta charset="UTF-8">
+    <title>Web Traffic exchange - Lobby</title>
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -37,6 +38,7 @@
     <script type="text/javascript" src="script.js"></script>  
     <script>
     window.addEventListener("load", initialize);
+    window.addEventListener("load",  getPTCAd);
     setInterval(function () {document.getElementById("current_balance").innerHTML = getCookie("credit")}, 60000);
     
     
@@ -51,7 +53,7 @@
         <td align="center" colspan="2">
             <h1><img src="favicon.png" alt="profile"
                 style="vertical-align: middle;width: 50px;height: 50px;border-radius: 50%;">
-                 <span style="background: #ddd;">Web Traffic Exchange </span></h1></td>
+                 <span style="background: #ddd;">Web Traffic Exchange</span></h1></td>
         <td align="right">
             <div class="dropdown">
                     <button id="username" class="dropbtn">User</button>
@@ -83,7 +85,7 @@
                 <div id="tabs-2">
                   <p style="text-align: left;">
                    <label style="  display:  inline-block; width: 200px; ">Website url    : </label> <input id="ptc_ad_site_url" type="text" class="text-input" placeholder="site url"></br>
-                    <label style="  display:  inline-block; width: 200px; ">Banner image url : </label> <input id="banner_image_url" type="text" class="text-input" placeholder="banner image url"></br>
+                    <label style="  display:  inline-block; width: 200px; ">Description (max 50 character) : </label> <input id="banner_image_url" type="text" class="text-input" placeholder="banner image url"></br>
                     
                     <label style="  display:  inline-block; width: 200px; ">Rewards for click      : </label>
                     <select name="rewards" id="banner_rewards_click">
@@ -107,20 +109,91 @@
 
         </td>
         <td bgcolor="#FFFFFE">
-         <span id="credit" style="visibility: hidden;"> <img src="coin-icon-3819.png" alt="current balance" style=" border-radius: 50%; width: 70px ; height:70px; "><label style="font-size: 24px;" id="current_balance"> 0 </label> Credit</span> 
+         <span id="credit" style="visibility: hidden;"> <img src="coin-icon-3819.png" style=" border-radius: 50%; width: 70px ; height:70px; "><label style="font-size: 24px;" id="current_balance"> 0 </label> Credit</span> 
         </td>
     </tr>
-    <tr><td colspan="3"><br><br></td></tr>
+    <tr><td colspan="3" bgcolor="#FFFFEF"><h3>PTC-AD Click & Earn</h3>
+        <div><span id="warning" style="color: mediumvioletred; visibility: hidden;"></span> <br> Watch PTC Ad for <span id="time">01:00</span> minutes!</div>
+    </td></tr>
 
-   
+    <tr><td colspan="3">
+        <table ><tr>
+           <td > <div class="ptc-ad-container" style="visibility: hidden;">
+                <img id="ptc-advert0" src="https://www.webtrafficexchange.co.uk/ptc-ad-banner.png" target="_blank" width="360px" height="200px" style= "padding: 0px 30px;"/>
+                <div class="top-left">
+                    <p > <h4><span id="text0" style="background-color: white; color: mediumvioletred; word-wrap: break-word;"> Read </span></h4> </p>
+                </div>
+                <div class="bottom-right">
+                    <h3>Earn</h3>
+                    <p > <span id="reward0">  </span> </p>
+                </div>
+            </div>
+            </td>
+            <td>
+                <div class="ptc-ad-container" style="visibility: hidden;">
+                    <img id="ptc-advert1" src="https://www.webtrafficexchange.co.uk/ptc-ad-banner.png" target="_blank" width="360px" height="200px" style= "padding: 0px 30px;"/>
+                    <div class="top-left">
+                        <p > <h4><span id="text1" style="background-color: white; color: mediumvioletred; word-wrap: break-word;"> Read </span> </h4></p>
+                    </div>
+                    <div class="bottom-right">
+                        <h3>Earn</h3>
+                        <p > <span id="reward1">  </span> </p>
+                    </div>
+                </div>
+            </td>
+            <td>
+                <div class="ptc-ad-container" style="visibility: hidden;">
+                    <img id="ptc-advert2" src="https://www.webtrafficexchange.co.uk/ptc-ad-banner.png" target="_blank" width="360px" height="200px"  style= "padding: 0px 30px;"/>
+                    <div class="top-left">
+                        <p ><h4> <span id="text2" style="background-color: white; color: mediumvioletred; word-wrap: break-word;"> Read </span> </h4></p>
+                    </div>
+                    <div class="bottom-right">
+                        <h3>Earn</h3>
+                        <p > <span id="reward2">  </span> </p>
+                    </div>
+                </div>
+            </td>
+            <td>
+                <div class="ptc-ad-container" style="visibility: hidden;">
+                    <img id="ptc-advert3" src="https://www.webtrafficexchange.co.uk/ptc-ad-banner.png" target="_blank" width="360px" height="200px" style= "padding: 0px 30px;"/>
+                    <div class="top-left">
+                        <p > <h4><span id="text3" style="background-color: white; color: mediumvioletred; word-wrap: break-word;"> Read </span></h4> </p>
+                    </div>
+                    <div class="bottom-right">
+                        <h3>Earn</h3>
+                        <p > <span id="reward3">  </span> </p>
+                    </div>
+                </div>
+            </td>
+            <td>
+                <div class="ptc-ad-container" style="visibility: hidden;">
+                    <img id="ptc-advert4" src="https://www.webtrafficexchange.co.uk/ptc-ad-banner.png" target="_blank" width="360px" height="200px" style= "padding: 0px 30px;"/>
+                    <div class="top-left">
+                        <p > <h4><span id="text4" style="background-color: white; color: mediumvioletred; word-wrap: break-word;"> Read </span></h4> </p>
+                    </div>
+                    <div class="bottom-right">
+                        <h3>Earn</h3>
+                        <p > <span id="reward4">  </span> </p>
+                    </div>
+                </div>
+            </td>
+           
+        </tr>
+    </table>
+       
+        
+    </td>
+    </tr>
+    <tr><td colspan="3" bgcolor="#FFFFEF"><h3>My Sites</h3>
     <tr>
         <td colspan="3">
             <table align="center" id="sites" border="1" width="100%">
             </table>
         </td>
     </tr>
-    <tr><td colspan="3"><br><br></td></tr>
-    <tr>
+    <tr><td colspan="3" bgcolor="#FFFFEF"><br>
+    </td></tr>
+   <!-- <tr>
         <td colspan="3" align="left">
            <h3>User Guide</h3>
             <ul>
@@ -134,7 +207,7 @@
             </ul>
            
         </td>
-    </tr>
+    </tr>-->
     <tr>
         <td colspan="3" align="center">© webtrafficexchange.co.uk All Rights Reserved.  <a href="term.html">Terms of service</a> &nbsp; <a href="https://web-traffic-exchange.blogspot.com/" target="_blank">Tutorial</a></td>
     </tr>
