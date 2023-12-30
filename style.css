@@ -249,6 +249,23 @@ li {
       left: 16px;
     }
     
+
+.ui-state-active,
+.ui-widget-content .ui-state-active,
+.ui-widget-header .ui-state-active,
+a.ui-button:active,
+.ui-button:active,
+.ui-button.ui-state-active:hover {
+	border: 1px solid #05bb3e;
+	background: #03991b;
+	font-weight: normal;
+	color: #ffffff;
+}
+.ui-icon-background,
+.ui-state-active .ui-icon-background {
+	border: #05bb3e;
+	background-color: #ffffff;
+}
     
 
   
