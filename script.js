@@ -456,13 +456,14 @@ function getPTCAd(advert ='', advertiser = '', reward=0){
             
         }
         else{
-            window.location.href="https://www.webtrafficexchange.co.uk";
+             console.log(data);
+     //       window.location.href="https://www.webtrafficexchange.co.uk";
         }
         
     })
     .catch(error =>{
         console.log(error);
-        window.location.href="https://www.webtrafficexchange.co.uk";
+   //     window.location.href="https://www.webtrafficexchange.co.uk";
     })
 }
 
