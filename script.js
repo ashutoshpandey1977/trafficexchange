@@ -440,7 +440,9 @@ function getPTCAd(advert ='', advertiser = '', reward=0){
             setCookie("credit",body[0]['credit'], 1);
             setCookie("session",body[0]['session_id'], 1);
             document.getElementById("current_balance").innerHTML=body[0]['credit'];
-            for (var i=0;i<body.length;i++){
+            ptc_ads=document.getElementsByClassName("ptc-ad-container");
+             
+            for (var i=0;i<3;i++){
                 image=document.getElementById("ptc-advert"+i) ;
                 document.getElementById("text"+i).innerHTML = body[i]['description'].substring(0, 50);
                 document.getElementById("reward"+i).innerHTML=body[i]['reward'] + " TOKENS";
@@ -449,7 +451,6 @@ function getPTCAd(advert ='', advertiser = '', reward=0){
                 image.reward = body[i]['reward'];
                 image.advertiser = body[i]['user_name'];
             } 
-             ptc_ads=document.getElementsByClassName("ptc-ad-container");
              for (var i = 0; i < ptc_ads.length; i ++) {
                 ptc_ads[i].style.visibility = 'visible';
             }
