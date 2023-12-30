@@ -439,10 +439,10 @@ function getPTCAd(advert ='', advertiser = '', reward=0){
             body = JSON.parse(data['body'])
             setCookie("credit",body[0]['credit'], 1);
             setCookie("session",body[0]['session_id'], 1);
-            document.getElementById("current_balance").innerHTML=JSON.parse(body[0]['credit']);
+            document.getElementById("current_balance").innerHTML=body[0]['credit'];
             for (var i=0;i<body.length;i++){
                 image=document.getElementById("ptc-advert"+i) ;
-                image.src=body[i]['image_url'];
+                //image.src=body[i]['image_url'];
                 document.getElementById("reward"+i).innerHTML=body[i]['reward'];
                 image.addEventListener("click", click_ptc_advert);
                 image.advert=body[i]['site_url'];

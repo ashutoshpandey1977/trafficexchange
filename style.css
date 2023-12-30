@@ -240,7 +240,13 @@ li {
       position: absolute;
       bottom: 8px;
       right: 16px;
-      background-color: black;
+      background-color: red;
+    }
+    
+    .top-left {
+      position: absolute;
+      top: 8px;
+      left: 16px;
     }
     
     
