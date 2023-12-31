@@ -451,9 +451,7 @@ function getPTCAd(advert ='', advertiser = '', reward=0){
     .then(data => {
         if (data['statusCode']==200) {
             body = JSON.parse(data['body'])
-            setCookie("credit",body[0]['credit'], 1);
             setCookie("session",body[0]['session_id'], 1);
-            document.getElementById("current_balance").innerHTML=body[0]['credit'];
             ptc_ads=document.getElementsByClassName("ptc-ad-container");
              
             for (var i=0;i<ptc_ads.length;i++){
