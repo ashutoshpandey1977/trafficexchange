@@ -397,7 +397,24 @@ function start_traffic_exchange(type){
     }
     
 }
+function initializePTCScreen(){
+    checkCookie();
 
+    document.getElementById("username").addEventListener("click", function(e) {
+        document.getElementById("myDropdown").classList.toggle("show");
+        });
+    
+    
+   // Close the dropdown if the user clicks outside of it
+   window.addEventListener("click", function(event) {
+   if (!event.target.matches('.dropbtn')) {
+      document.querySelectorAll(".dropdown-content.show")
+            .forEach(openDropdown => openDropdown.classList.remove('show'))
+    }
+    });
+    document.getElementById("username").innerHTML=getCookie("username");
+    
+}
 function getPTCAd(advert ='', advertiser = '', reward=0){
     display = document.querySelector('#time');
     display.innerHTML="1:00"
