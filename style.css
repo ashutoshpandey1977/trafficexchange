@@ -121,6 +121,10 @@ fieldset div{
   padding: 15px;
   height: 300px;
 }
+
+fieldset {
+border:1px solid #ddd;
+}
 .button-row {
   padding: 8px 12px;
   font-size: 12px;
