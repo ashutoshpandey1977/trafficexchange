@@ -119,6 +119,7 @@ body{
 
 fieldset div{
   padding: 15px;
+  height: 250px;
 }
 .button-row {
   padding: 8px 12px;
