@@ -105,6 +105,7 @@ body{
 }
 
 .button-home {
+  width:250px;
   padding: 12px 20px;
   font-size: 18px;
   text-align: center;
@@ -114,7 +115,6 @@ body{
   background-color: #04AA6D;
   border: none;
   border-radius: 15px;
-  box-shadow: 0 9px #999;
 }
 
 fieldset div{
