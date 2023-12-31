@@ -156,6 +156,7 @@ function initialize(){
                 document.getElementById("earn-minute-manual").style.visibility = 'hidden';
                 document.getElementById("earn-minute-auto").style.visibility = 'hidden';
                 document.getElementById("buy-minute").style.visibility = 'hidden';
+                document.getElementById("click-ptc-ad").style.visibility = 'hidden';
                 document.getElementById("credit").style.visibility = 'hidden';
                 
             }
@@ -163,6 +164,7 @@ function initialize(){
                 document.getElementById("earn-minute-manual").style.visibility = 'visible';
                 document.getElementById("earn-minute-auto").style.visibility = 'visible';
                 document.getElementById("buy-minute").style.visibility = 'visible';
+                document.getElementById("click-ptc-ad").style.visibility = 'visible';
                 document.getElementById("credit").style.visibility = 'visible';
                 console.log(data);
                 document.getElementById("sites").innerHTML="";
@@ -310,6 +312,7 @@ function add_site(type='SITE'){
             document.getElementById("earn-minute-manual").style.visibility = 'visible';
             document.getElementById("earn-minute-auto").style.visibility = 'visible';
             document.getElementById("buy-minute").style.visibility = 'visible';
+            document.getElementById("click-ptc-ad").style.visibility = 'visible';
             document.getElementById("credit").style.visibility = 'visible';
                 
             document.getElementById("sites").innerHTML="";
@@ -366,6 +369,7 @@ function add_remove_site(site_name,action){
             document.getElementById("earn-minute-manual").style.visibility = 'visible';
             document.getElementById("earn-minute-auto").style.visibility = 'visible';
             document.getElementById("buy-minute").style.visibility = 'visible';
+            document.getElementById("click-ptc-ad").style.visibility = 'visible';
             document.getElementById("credit").style.visibility = 'visible';
                 
             var element =  document.getElementById("sites");
