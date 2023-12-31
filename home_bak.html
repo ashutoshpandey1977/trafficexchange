@@ -68,41 +68,43 @@
     </tr>
     <tr>
         <td bgcolor="#FFFFFE">
-            <div id="tabs">
-                <ul>
-                  <li><a href="#tabs-1">Add Site</a></li>
-                  <li><a href="#tabs-2">PTC Ad</a></li>
-                </ul>
-                <div id="tabs-1">
+            <fieldset>
+                <legend>Step 1: Add your website</legend>
+                <div id="tabs">
+                    <ul>
+                    <li><a href="#tabs-1">Add Site</a></li>
+                    <li><a href="#tabs-2">PTC Ad</a></li>
+                    </ul>
+                    <div id="tabs-1">
+                        <p style="text-align: left;">
+                        <label style="  display:  inline-block; width: 200px; ">Website url    : </label> <input id="site_url" type="text" class="text-input" placeholder="site url">
+                        </br>
+                            <input type="button" class="button" value="Add Your Site" onclick="add_site('SITE')">
+                        </p>
+                    </div>
+                    <div id="tabs-2">
                     <p style="text-align: left;">
-                       <label style="  display:  inline-block; width: 200px; ">Website url    : </label> <input id="site_url" type="text" class="text-input" placeholder="site url">
-                    </br>
-                        <input type="button" class="button" value="Add Your Site" onclick="add_site('SITE')">
+                    <label style="  display:  inline-block; width: 200px; ">Website url    : </label> <input id="ptc_ad_site_url" type="text" class="text-input" placeholder="site url"></br>
+                        <label style="  display:  inline-block; width: 200px; ">Banner image url : </label> <input id="banner_image_url" type="text" class="text-input" placeholder="banner image url"></br>
+                        
+                        <label style="  display:  inline-block; width: 200px; ">Rewards for click      : </label>
+                        <select name="rewards" id="banner_rewards_click">
+                            <option value="10">10</option>
+                            <option value="50">50</option>
+                            <option value="100">100</option>
+                            <option value="500">500</option>
+                        </select></br>
+                        <input type="button" class="button" value="Add Your Banner" onclick="add_site('PTC')">
+                        
                     </p>
-                </div>
-                <div id="tabs-2">
-                  <p style="text-align: left;">
-                   <label style="  display:  inline-block; width: 200px; ">Website url    : </label> <input id="ptc_ad_site_url" type="text" class="text-input" placeholder="site url"></br>
-                    <label style="  display:  inline-block; width: 200px; ">Banner image url : </label> <input id="banner_image_url" type="text" class="text-input" placeholder="banner image url"></br>
+                    </div>
                     
-                    <label style="  display:  inline-block; width: 200px; ">Rewards for click      : </label>
-                    <select name="rewards" id="banner_rewards_click">
-                        <option value="10">10</option>
-                        <option value="50">50</option>
-                        <option value="100">100</option>
-                        <option value="500">500</option>
-                      </select></br>
-                    <input type="button" class="button" value="Add Your Banner" onclick="add_site('PTC')">
-                    
-                </p>
                 </div>
-                
-              </div>
-           
+            </fieldset>
         </td>
         <td bgcolor="#FFFFFE">
             <fieldset>
-                <legend>Earn Tokens</legend>
+                <legend>Step 2. Earn Tokens</legend>
                 <div>
                     <input type="button"  id="earn-minute-manual" value="Start Manual Surfing" class="button-home" onclick="start_traffic_exchange('MANUAL')" style="background-image: url(piggy-bank.jpg);background-repeat: no-repeat;  background-position: 10px 10px; padding-left: 42px; vertical-align: middle; visibility: hidden;"  >
                 <br><br><input type="button"  id="earn-minute-auto" value="Start Auto Surfing" class="button-home" onclick="start_traffic_exchange('AUTO')" style="background-image: url(piggy-bank.jpg);background-repeat: no-repeat;  background-position: 10px 10px; padding-left: 42px; vertical-align: middle; visibility: hidden;"  >
