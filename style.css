@@ -103,6 +103,19 @@ body{
   border-radius: 15px;
   box-shadow: 0 9px #999;
 }
+
+.button-home {
+  padding: 12px 20px;
+  font-size: 18px;
+  text-align: center;
+  cursor: pointer;
+  outline: none;
+  color: #fff;
+  background-color: #04AA6D;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #999;
+}
 .button-row {
   padding: 8px 12px;
   font-size: 12px;

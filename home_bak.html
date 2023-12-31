@@ -10,7 +10,6 @@
     gtag('config', 'G-D8EN2TC4FP');
     </script>
     <meta charset="UTF-8">
-    <title>Web Traffic exchange - Lobby</title>
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -27,36 +26,17 @@
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <title>webtrafficexchange.co.uk - Your Traffic Exchange, 1:1 Exchange Ratio, Manual Surfing, Innovative Referral Program. FREE Traffic!</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="https:////code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
      <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
   <script>
   $( function() {
     $( "#tabs" ).tabs();
   } );
-  $( function() {
-    $( "#accordion" ).accordion();
-  } );
   </script>
     <script type="text/javascript" src="script.js"></script>  
     <script>
-   // window.addEventListener("load", initialize);
-    checkCookie();
-
-    document.getElementById("username").addEventListener("click", function(e) {
-        document.getElementById("myDropdown").classList.toggle("show");
-        });
-    
-    
-   // Close the dropdown if the user clicks outside of it
-   window.addEventListener("click", function(event) {
-   if (!event.target.matches('.dropbtn')) {
-      document.querySelectorAll(".dropdown-content.show")
-            .forEach(openDropdown => openDropdown.classList.remove('show'))
-    }
-    });
-    document.getElementById("username").innerHTML=getCookie("username");
-    window.addEventListener("load",  getPTCAd);
+    window.addEventListener("load", initialize);
     setInterval(function () {document.getElementById("current_balance").innerHTML = getCookie("credit")}, 60000);
     
     
@@ -71,7 +51,7 @@
         <td align="center" colspan="2">
             <h1><img src="favicon.png" alt="profile"
                 style="vertical-align: middle;width: 50px;height: 50px;border-radius: 50%;">
-                 <span style="background: #ddd;">Web Traffic Exchange</span></h1></td>
+                 <span style="background: #ddd;">Web Traffic Exchange </span></h1></td>
         <td align="right">
             <div class="dropdown">
                     <button id="username" class="dropbtn">User</button>
@@ -103,7 +83,7 @@
                 <div id="tabs-2">
                   <p style="text-align: left;">
                    <label style="  display:  inline-block; width: 200px; ">Website url    : </label> <input id="ptc_ad_site_url" type="text" class="text-input" placeholder="site url"></br>
-                    <label style="  display:  inline-block; width: 200px; ">Description (max 50 character) : </label> <input id="banner_image_url" type="text" class="text-input" placeholder="banner image url"></br>
+                    <label style="  display:  inline-block; width: 200px; ">Banner image url : </label> <input id="banner_image_url" type="text" class="text-input" placeholder="banner image url"></br>
                     
                     <label style="  display:  inline-block; width: 200px; ">Rewards for click      : </label>
                     <select name="rewards" id="banner_rewards_click">
@@ -121,119 +101,43 @@
            
         </td>
         <td bgcolor="#FFFFFE">
-            <input type="button"  id="earn-minute-manual" value="Start Manual Surfing" class="button" onclick="start_traffic_exchange('MANUAL')" style="background-image: url(piggy-bank.jpg);background-repeat: no-repeat;  background-position: 10px 10px; padding-left: 42px; vertical-align: middle; "  >
-            <input type="button"  id="earn-minute-auto" value="Start Auto Surfing" class="button" onclick="start_traffic_exchange('AUTO')" style="background-image: url(piggy-bank.jpg);background-repeat: no-repeat;  background-position: 10px 10px; padding-left: 42px; vertical-align: middle; "  >
-            <input type="button"  id="buy-minute" value="Buy Credit" class="button" onclick="window.location.href='https://www.webtrafficexchange.co.uk/buy_credit.html'" style="background-color: #FFAA6D; "  >
-
+            <fieldset>
+                <legend>Earn Tokens</legend>
+                    <input type="button-home"  id="earn-minute-manual" value="Start Manual Surfing" class="button" onclick="start_traffic_exchange('MANUAL')" style="background-image: url(piggy-bank.jpg);background-repeat: no-repeat;  background-position: 10px 10px; padding-left: 42px; vertical-align: middle; visibility: hidden;"  >
+                    <input type="button-home"  id="earn-minute-auto" value="Start Auto Surfing" class="button" onclick="start_traffic_exchange('AUTO')" style="background-image: url(piggy-bank.jpg);background-repeat: no-repeat;  background-position: 10px 10px; padding-left: 42px; vertical-align: middle; visibility: hidden;"  >
+                    <input type="button-home"  id="click-ptc-ad" value="Click PTC Ad" class="button" onclick="start_traffic_exchange('AUTO')" style="background-image: url(piggy-bank.jpg);background-repeat: no-repeat;  background-position: 10px 10px; padding-left: 42px; vertical-align: middle; visibility: hidden;"  >
+                    <input type="button-home"  id="buy-minute" value="Buy Credit" class="button" onclick="window.location.href='https://www.webtrafficexchange.co.uk/buy_credit.html'" style="background-color: #FFAA6D; visibility: hidden;"  >
+            </fieldset>
         </td>
         <td bgcolor="#FFFFFE">
-         <span id="credit" style="visibility: hidden;"> <img src="coin-icon-3819.png" style=" border-radius: 50%; width: 70px ; height:70px; "><label style="font-size: 24px;" id="current_balance"> 0 </label> Credit</span> 
+         <span id="credit" style="visibility: hidden;"> <img src="coin-icon-3819.png" alt="current balance" style=" border-radius: 50%; width: 70px ; height:70px; "><label style="font-size: 24px;" id="current_balance"> 0 </label> Credit</span> 
         </td>
     </tr>
-    <tr><td colspan="3" bgcolor="#FFFFEF">
-        <div><span id="warning" style="color: mediumvioletred; visibility: hidden;"></span> <br> Watch PTC Ad for <span id="time">01:00</span> minutes!</div>
-    </td></tr>
+    <tr><td colspan="3"><br><br></td></tr>
 
+   
     <tr>
         <td colspan="3">
-            <div id="accordion">    
-                <h3>Paid To Click ADS</h3>
-                <div>
-                  <p>
-                        <table ><tr>
-                           <td > <div class="ptc-ad-container" style="visibility: hidden;">
-                                <img id="ptc-advert0" src="https://www.webtrafficexchange.co.uk/ptc-ad-banner.png" target="_blank" width="360px" height="200px" style= "padding: 0px 30px;"/>
-                                <div class="top-left">
-                                    <p > <h4><span id="text0" style="background-color: white; color: mediumvioletred; word-wrap: break-word;"> Read </span></h4> </p>
-                                </div>
-                                <div class="bottom-right">
-                                    <h3>Earn</h3>
-                                    <p > <span id="reward0">  </span> </p>
-                                </div>
-                            </div>
-                            </td>
-                            <td>
-                                <div class="ptc-ad-container" style="visibility: hidden;">
-                                    <img id="ptc-advert1" src="https://www.webtrafficexchange.co.uk/ptc-ad-banner.png" target="_blank" width="360px" height="200px" style= "padding: 0px 30px;"/>
-                                    <div class="top-left">
-                                        <p > <h4><span id="text1" style="background-color: white; color: mediumvioletred; word-wrap: break-word;"> Read </span> </h4></p>
-                                    </div>
-                                    <div class="bottom-right">
-                                        <h3>Earn</h3>
-                                        <p > <span id="reward1">  </span> </p>
-                                    </div>
-                                </div>
-                            </td>
-                            <td>
-                                <div class="ptc-ad-container" style="visibility: hidden;">
-                                    <img id="ptc-advert2" src="https://www.webtrafficexchange.co.uk/ptc-ad-banner.png" target="_blank" width="360px" height="200px"  style= "padding: 0px 30px;"/>
-                                    <div class="top-left">
-                                        <p ><h4> <span id="text2" style="background-color: white; color: mediumvioletred; word-wrap: break-word;"> Read </span> </h4></p>
-                                    </div>
-                                    <div class="bottom-right">
-                                        <h3>Earn</h3>
-                                        <p > <span id="reward2">  </span> </p>
-                                    </div>
-                                </div>
-                            </td>
-                            <td>
-                                <div class="ptc-ad-container" style="visibility: hidden;">
-                                    <img id="ptc-advert3" src="https://www.webtrafficexchange.co.uk/ptc-ad-banner.png" target="_blank" width="360px" height="200px" style= "padding: 0px 30px;"/>
-                                    <div class="top-left">
-                                        <p > <h4><span id="text3" style="background-color: white; color: mediumvioletred; word-wrap: break-word;"> Read </span></h4> </p>
-                                    </div>
-                                    <div class="bottom-right">
-                                        <h3>Earn</h3>
-                                        <p > <span id="reward3">  </span> </p>
-                                    </div>
-                                </div>
-                            </td>
-                            <td>
-                                <div class="ptc-ad-container" style="visibility: hidden;">
-                                    <img id="ptc-advert4" src="https://www.webtrafficexchange.co.uk/ptc-ad-banner.png" target="_blank" width="360px" height="200px" style= "padding: 0px 30px;"/>
-                                    <div class="top-left">
-                                        <p > <h4><span id="text4" style="background-color: white; color: mediumvioletred; word-wrap: break-word;"> Read </span></h4> </p>
-                                    </div>
-                                    <div class="bottom-right">
-                                        <h3>Earn</h3>
-                                        <p > <span id="reward4">  </span> </p>
-                                    </div>
-                                </div>
-                            </td>
-                           
-                        </tr>
-                    </table>
-                  </p>
-                </div>
-
-            
-                <h3>MY Sites</h3>
-                <div>
-                  <p>
-                    <table align="center" id="sites" border="1" width="100%">
-                    </table>
-                  </p>
-                </div>
-                <h3>User Guide</h3>
-                <div>
-                  <p>
-                    <ul>
-                        <li> <b>Step 1</b> Add your Site using above input box - If your site doesn't violate our Terms of Service, then it'll be accepted.</li>
-                        <li><span id="guide-step2" style="visibility: hidden;"> <b>Step 2</b> Click Start Surfing Button - Get one vistor for every site you visit. 1 Manual Surf Minute = 5 Auto Surf Minute</li></span>
-                    </ul>
-                    <h4>Example Site URL</h4>
-                    <ul>
-                        <li><b>Youtube video </b>-  https://www.youtube.com/embed/kB0_lTja_Qo?autoplay=1 </li>
-                        <li><b>Website</b> -  https://www.webtrafficexchange.co.uk </li>
-                    </ul>
-                  </p>
-                </div>
-                
-              </div>
+            <table align="center" id="sites" border="1" width="100%">
+            </table>
+        </td>
+    </tr>
+    <tr><td colspan="3"><br><br></td></tr>
+    <tr>
+        <td colspan="3" align="left">
+           <h3>User Guide</h3>
+            <ul>
+                <li> <b>Step 1</b> Add your Site using above input box - If your site doesn't violate our Terms of Service, then it'll be accepted.</li>
+                <li><span id="guide-step2" style="visibility: hidden;"> <b>Step 2</b> Click Start Surfing Button - Get one vistor for every site you visit. 1 Manual Surf Minute = 5 Auto Surf Minute</li></span>
+            </ul>
+            <h4>Example Site URL</h4>
+            <ul>
+                <li><b>Youtube video </b>-  https://www.youtube.com/embed/kB0_lTja_Qo?autoplay=1 </li>
+                <li><b>Website</b> -  https://www.webtrafficexchange.co.uk </li>
+            </ul>
            
         </td>
     </tr>
-   
     <tr>
         <td colspan="3" align="center">© webtrafficexchange.co.uk All Rights Reserved.  <a href="term.html">Terms of service</a> &nbsp; <a href="https://web-traffic-exchange.blogspot.com/" target="_blank">Tutorial</a></td>
     </tr>
