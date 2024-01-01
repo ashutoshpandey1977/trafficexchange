@@ -55,8 +55,8 @@
                 document.getElementById("fetch_new_advert").style.visibility = 'hidden';
                 var oneMinutes = 60 * 1,
                 display = document.getElementById("time");
-                exchangeTimer(display, oneMinutes);
-                
+                exchangeTimer(oneMinutes, display);
+
                 setTimeout (function(){
                     document.getElementById("fetch_new_advert").style.visibility = 'visible';
                     createCaptcha();
