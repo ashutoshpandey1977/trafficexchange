@@ -53,13 +53,15 @@
             if (document.getElementById("cpatchaTextBox").value == code) {
                 initializeIframe('MANUAL')
                 document.getElementById("fetch_new_advert").style.visibility = 'hidden';
+                var oneMinutes = 60 * 1,
+                display = document.getElementById("time");
+                exchangeTimer(display, oneMinutes);
+                
                 setTimeout (function(){
                     document.getElementById("fetch_new_advert").style.visibility = 'visible';
                     createCaptcha();
                 },60000);
-                var oneMinutes = 60 * 1,
-                display = document.getElementById("time");
-                exchangeTimer(display, oneMinutes);
+                
             }else{
                 createCaptcha();
                 display = document.getElementById("time");
