@@ -422,7 +422,7 @@ function initializePTCScreen(){
 function getPTCAd(advert ='', advertiser = '', reward=0){
     display = document.querySelector('#time');
     display.innerHTML="1:00"
-    display.style.backgroundColor ='F4C2C2'
+    display.style.backgroundColor ='#eee';
     document.getElementById("warning").style.visibility="hidden";
     // POST request using fetch()
     fetch("https://os6p24onhg.execute-api.eu-north-1.amazonaws.com/live/exchange", {
@@ -488,6 +488,7 @@ function getPTCAd(advert ='', advertiser = '', reward=0){
 function click_ptc_advert(evt){
     var oneMinutes = 60 * 1,
     display = document.querySelector('#time');
+    display.style.backgroundColor ='#F4C2C2';
     startTimer(evt.currentTarget.advert, evt.currentTarget.advertiser, evt.currentTarget.reward, oneMinutes, display); 
 }
 
