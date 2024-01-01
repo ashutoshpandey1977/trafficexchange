@@ -523,6 +523,27 @@ function startTimer(advert, advertiser, reward, duration, display) {
         }
         }, 60000);
 }
+
+function exchangeTimer(duration, display) {
+    var timer = duration, minutes, seconds;
+    var countDownTimer = setInterval(function () {
+        minutes = parseInt(timer / 60, 10);
+        seconds = parseInt(timer % 60, 10);
+
+        minutes = minutes < 10 ? "0" + minutes : minutes;
+        seconds = seconds < 10 ? "0" + seconds : seconds;
+
+        display.textContent = minutes + ":" + seconds;
+        
+        if (--timer < 0) {
+            timer = duration;
+        }
+    }, 1000);
+    setTimeout( function() {
+        clearInterval(countDownTimer);
+        }, 60000);
+}
+
 function initializeIframe(type='AUTO', adType='SITE'){
     
     // POST request using fetch()
