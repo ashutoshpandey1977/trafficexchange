@@ -488,7 +488,7 @@ function getPTCAd(advert ='', advertiser = '', reward=0){
 function click_ptc_advert(evt){
     var oneMinutes = 60 * 1,
     display = document.querySelector('#time');
-    display.style.backgroundColor ='#F4C2C2';
+    
     startTimer(evt.currentTarget.advert, evt.currentTarget.advertiser, evt.currentTarget.reward, oneMinutes, display); 
 }
 
@@ -528,6 +528,7 @@ function startTimer(advert, advertiser, reward, duration, display) {
 
 function exchangeTimer(duration, display) {
     var timer = duration, minutes, seconds;
+    display.style.backgroundColor ='#F4C2C2';
     var countDownTimer = setInterval(function () {
         minutes = parseInt(timer / 60, 10);
         seconds = parseInt(timer % 60, 10);
