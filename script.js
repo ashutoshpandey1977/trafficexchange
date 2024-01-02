@@ -153,11 +153,11 @@ function initialize(){
     .then(data => {
         if (data['statusCode']==200) {
             if(JSON.parse(data['body']['sites']).length == 0){
-                document.getElementById("earn-minute-manual").style.visibility = 'hidden';
-                document.getElementById("earn-minute-auto").style.visibility = 'hidden';
-                document.getElementById("buy-minute").style.visibility = 'hidden';
-                document.getElementById("click-ptc-ad").style.visibility = 'hidden';
-                document.getElementById("credit").style.visibility = 'hidden';
+                document.getElementById("earn-minute-manual").style.visibility = 'visible';
+                document.getElementById("earn-minute-auto").style.visibility = 'visible';
+                document.getElementById("buy-minute").style.visibility = 'visible';
+                document.getElementById("click-ptc-ad").style.visibility = 'visible';
+                document.getElementById("credit").style.visibility = 'visible';
                 
             }
             else{
