@@ -266,7 +266,7 @@ function add_site(type='SITE'){
             return;
         }
         description = document.getElementById("banner_description").value;
-        if(image_url === null || image_url.trim().length === 0){
+        if(description === null || description.trim().length === 0){
             return;
         }
         reward = document.getElementById("banner_rewards_click").value;
