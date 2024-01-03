@@ -319,7 +319,7 @@ function add_site(type='SITE'){
             }
             if(type==='PTC'){
                 document.getElementById("ptc_ad_site_url").value="";
-                document.getElementById("banner_image_url").value="";
+                document.getElementById("banner_description").value="";
             
             }
             constructTable(JSON.parse(data['body']), document.getElementById("sites"));
