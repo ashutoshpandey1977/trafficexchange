@@ -314,9 +314,14 @@ function add_site(type='SITE'){
             document.getElementById("credit").style.visibility = 'visible';
                 
             document.getElementById("sites").innerHTML="";
-            document.getElementById("site_url").value="";
-            document.getElementById("ptc_ad_site_url").value="";
-            document.getElementById("banner_image_url").value="";
+            if(type==='SITE'){
+                document.getElementById("site_url").value="";
+            }
+            if(type==='PTC'){
+                document.getElementById("ptc_ad_site_url").value="";
+                document.getElementById("banner_image_url").value="";
+            
+            }
             constructTable(JSON.parse(data['body']), document.getElementById("sites"));
         }
         else{
@@ -332,8 +337,6 @@ function add_site(type='SITE'){
 }
 
 function add_remove_site(site_name,action){
-    const queryString = window.location.search;
-    const urlParams = new URLSearchParams(queryString);
 
     // POST request using fetch()
     fetch("https://os6p24onhg.execute-api.eu-north-1.amazonaws.com/live/sites", {
