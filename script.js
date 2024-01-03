@@ -254,8 +254,8 @@ function add_site(type='SITE'){
     const queryString = window.location.search;
     const urlParams = new URLSearchParams(queryString);
     site = '';
-    imageUrl = '';
-    reward = '10';
+    description = '';
+    reward = '1';
     if (type === 'SITE'){
         site = document.getElementById("site_url").value;
         if(site === null || site.trim().length === 0){
@@ -267,7 +267,7 @@ function add_site(type='SITE'){
         if(site === null || site.trim().length === 0){
             return;
         }
-        image_url = document.getElementById("banner_image_url").value;
+        description = document.getElementById("banner_description").value;
         if(image_url === null || image_url.trim().length === 0){
             return;
         }
@@ -290,7 +290,7 @@ function add_site(type='SITE'){
             session_id: getCookie("session"),
             site_url: site,
             type: type,
-            image_url: image_url,
+            description: description,
             reward: reward,
             action: "ADD"
             }
