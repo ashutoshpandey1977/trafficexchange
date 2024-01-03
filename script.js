@@ -251,8 +251,6 @@ function Headers(list, selector, append_action) {
 }
 
 function add_site(type='SITE'){
-    const queryString = window.location.search;
-    const urlParams = new URLSearchParams(queryString);
     site = '';
     description = '';
     reward = '1';
