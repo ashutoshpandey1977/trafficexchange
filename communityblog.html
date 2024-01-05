@@ -16,14 +16,42 @@
 
   });
 </script>
-
+<link rel="stylesheet" href="style.css">
   </head>
 
   <body>
-    <h1><label>Enter Your Blog Title</label><input type="text" id="blog-title" name="blog-title"></h1>
-    <form method="post">
-      <textarea id="mytextarea">Hello, World!</textarea>
-    </form>
+    <table width="100%" style="border-collapse:collapse; border-spacing: 30px;">
+      <tr>
+          <td align="center" colspan="2">
+              <h1><img src="favicon.png" alt="profile"
+                  style="vertical-align: middle;width: 50px;height: 50px;border-radius: 50%;">
+                   <span style="background: #ddd;">Web Traffic Exchange </span></h1></td>
+          <td align="right">
+              <div class="dropdown">
+                      <button id="username" class="dropbtn">User</button>
+                      <div id="myDropdown" class="dropdown-content">
+                        <hr class="solid">
+                        <a onclick="logoff()"><label>Logoff</label></a>
+                        <hr class="solid">
+                        <a onclick="show_messages()"><label>Messages</label></a>
+                        <hr class="solid">
+                      </div>
+                    </div>
+         
+          </td>
+      </tr>
+      <tr>
+        <td colspan="2">
+          <p> <label>Enter Your Blog Title  : </label><input type="text" id="blog-title" name="blog-title"></p>
+          <form method="post">
+            <textarea id="mytextarea">Hello, World!</textarea>
+          </form>
+          <p><button  class="button" onclick="publish">Publish</button> </p>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2" align="center">© webtrafficexchange.co.uk All Rights Reserved.  <a href="term.html">Terms of service</a> &nbsp; <a href="https://web-traffic-exchange.blogspot.com/" target="_blank">Tutorial</a></td>
+    </tr>
   </body>
 </html>
 
