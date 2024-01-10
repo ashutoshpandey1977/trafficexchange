@@ -673,9 +673,9 @@ function publishBlog(){
             {
             user_name: getCookie("username"),
             session_id: getCookie("session"),
-            title: document.getElementById("blog-title"),
-            keyword: document.getElementById("blog-keyword"),
-            description: document.getElementById("blog-description"),
+            title: document.getElementById("blog-title").value,
+            keyword: document.getElementById("blog-keyword").value,
+            description: document.getElementById("blog-description").value,
             blog: tinymce.get("mytextarea").getContent()
            
             }
