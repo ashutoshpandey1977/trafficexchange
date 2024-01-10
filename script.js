@@ -659,3 +659,58 @@ function viewtestpage(advert){
       );
     
 }
+
+function publishBlog(){
+
+    // POST request using fetch()
+    fetch("https://os6p24onhg.execute-api.eu-north-1.amazonaws.com/live/blog", {
+
+        // Adding method type
+        method: "POST",
+
+        // Adding body or contents to send
+        body: JSON.stringify(
+            {
+            user_name: getCookie("username"),
+            session_id: getCookie("session"),
+            title: document.getElementById("blog-title"),
+            keyword: document.getElementById("blog-keyword"),
+            description: document.getElementById("blog-description"),
+            blog: tinymce.get("myTextarea").getContent()
+           
+            }
+        ),
+
+        // Adding headers to the request
+        headers: {
+            "Content-type": "application/json; charset=UTF-8"
+        }
+    })
+
+    // Converting to JSON
+    .then(response => response.json())
+
+    // Displaying results to console
+    .then(data => {
+        console.log(data);
+        if (data['statusCode']==200) {
+            document.getElementById("message").style.visibility = 'visible';
+            document.getElementById("message").innerHTML = 'Blog submitted for review. If your blog doesn't violate our Terms of Service, then it'll be published. You will receive email when your page is online.';
+            document.getElementById("blog-title").innerHTML = '';
+            document.getElementById("blog-keyword").innerHTML = '';
+            document.getElementById("blog-description").innerHTML = '';
+           
+        }
+        else{
+            document.getElementById("message").style.visibility = 'visible';
+            document.getElementById("message").innerHTML = 'Error occured while saving your blog. Please try again later';
+        }
+        }
+    )
+    .catch(error =>{
+        console.log(error);
+        window.location.href="https://www.webtrafficexchange.co.uk";
+    })
+
+}
+
