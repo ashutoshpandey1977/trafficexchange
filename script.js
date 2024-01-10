@@ -676,7 +676,7 @@ function publishBlog(){
             title: document.getElementById("blog-title"),
             keyword: document.getElementById("blog-keyword"),
             description: document.getElementById("blog-description"),
-            blog: tinymce.get("myTextarea").getContent()
+            blog: tinymce.get("mytextarea").getContent()
            
             }
         ),
