@@ -695,7 +695,7 @@ function publishBlog(){
         console.log(data);
         if (data['statusCode']==200) {
             document.getElementById("message").style.visibility = 'visible';
-            document.getElementById("message").innerHTML = 'Blog submitted for review. If your blog does not violate our Terms of Service, then it'll be published. You will receive email when your page is online.';
+            document.getElementById("message").innerHTML = 'Blog submitted for review. If your blog does not violate our Terms of Service, then it will be published. You will receive email when your page is online.';
             document.getElementById("blog-title").innerHTML = '';
             document.getElementById("blog-keyword").innerHTML = '';
             document.getElementById("blog-description").innerHTML = '';
