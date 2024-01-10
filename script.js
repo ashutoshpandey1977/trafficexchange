@@ -695,7 +695,8 @@ function publishBlog(){
         console.log(data);
         if (data['statusCode']==200) {
             document.getElementById("message").style.visibility = 'visible';
-            document.getElementById("message").innerHTML = 'Blog submitted for review. If your blog does not violate our Terms of Service, then it will be published. You will receive email when your page is online.';
+            document.getElementById("message").innerHTML = 'Blog submitted for review. You will receive email when your page is online.';
+            document.getElementById("message").style.color = "green";
             document.getElementById("blog-title").innerHTML = '';
             document.getElementById("blog-keyword").innerHTML = '';
             document.getElementById("blog-description").innerHTML = '';
@@ -704,6 +705,7 @@ function publishBlog(){
         else{
             document.getElementById("message").style.visibility = 'visible';
             document.getElementById("message").innerHTML = 'Error occured while saving your blog. Please try again later';
+            document.getElementById("message").style.color = "crimson";
         }
         }
     )
@@ -711,6 +713,7 @@ function publishBlog(){
         console.log(error);
         document.getElementById("message").style.visibility = 'visible';
         document.getElementById("message").innerHTML = 'Error occured while saving your blog. Please try again later';
+        document.getElementById("message").style.color = "crimson";
     })
 
 }
