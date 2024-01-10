@@ -709,7 +709,8 @@ function publishBlog(){
     )
     .catch(error =>{
         console.log(error);
-        window.location.href="https://www.webtrafficexchange.co.uk";
+        document.getElementById("message").style.visibility = 'visible';
+        document.getElementById("message").innerHTML = 'Error occured while saving your blog. Please try again later';
     })
 
 }
