@@ -25,6 +25,10 @@ function setCookie(cname, cvalue, exdays) {
     if (user == "") {
         window.location.href="https://www.webtrafficexchange.co.uk";
     } 
+    let session = getCookie("session");
+    if (session == "") {
+        window.location.href="https://www.webtrafficexchange.co.uk";
+    } 
   }
 
   function deleteAllCookies() {
@@ -206,7 +210,7 @@ function constructTable(list, selector, append_action=true) {
         if(list[i][cols[2]] == "BLOCKED"){
             row.addClass("row-blocked");
         }
-        else if(list[i][cols[1]] == "INACTIVE"){
+        else if(list[i][cols[2]] == "INACTIVE"){
             row.addClass("row-inactive");
             row.append($('<td/>').html('<input type="button" class="button-row" value="view" onclick="viewtestpage(\'' + list[i][cols[0]] +'\')">'));
             row.append($('<td/>').html('<input type="button" class="button-row" value="Add" onclick="add_remove_site(\'' + list[i][cols[0]] +'\',\'ADD\')">'));
