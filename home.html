@@ -74,6 +74,7 @@
                     <ul>
                     <li><a href="#tabs-1">Add Site</a></li>
                     <li><a href="#tabs-2">PTC Ad</a></li>
+                    <li><a href="#tabs-3">Create Blog</a></li>
                     </ul>
                     <div id="tabs-1">
                         <p style="text-align: left;">
@@ -97,6 +98,46 @@
                         <input type="button" class="button" value="Add Your Banner" onclick="add_site('PTC')">
                         
                     </p>
+                    </div>
+                    <div id="tabs-3">
+                        <table>
+                            <tr>
+                                <td colspan="2" style="text-align: left; width:100%; visibility: hidden;color: green">
+                                 <span ><label id="message">Blog submitted for review. You will receive email when your page is online.</label> </span>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td  style="text-align: left; width: 20%;">
+                                  <span style="display: block;overflow: hidden;padding-right:10px;"><label style="background-color: #fefefe;">Enter Your Blog Title  : </label></span>
+                                </td>
+                                <td style="text-align: left; width: 80%;">
+                                 <span style="display: block;overflow: hidden;padding-right:10px;"><input type="text" id="blog-title" name="blog-title" style="width: 75%;"> <button  class="button-home" onclick="publishBlog()" style="width:fit-content; padding: 6px 10px;">Publish</button></span>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td  style="text-align: left; width: 20%;">
+                                  <span style="display: block;overflow: hidden;padding-right:10px;"><label style="background-color: #fefefe;">Enter Description  : </label></span>
+                                </td>
+                                  <td style="text-align: left; width: 80%;">
+                                    <input type="text" id="blog-description" name="blog-description" style="width:75%; ">  
+                                </td>
+                              </tr>
+                              <tr>
+                                <td  style="text-align: left; width: 20%;">
+                                  <span style="display: block;overflow: hidden;padding-right:10px;"><label style="background-color: #fefefe;">Enter Keyword  : </label>
+                                </td>
+                                  <td style="text-align: left; width: 80%;">
+                                    <input type="text" id="blog-keyword" name="blog-keyword" style="width:75%;"> 
+                                </td>
+                              </tr>
+                              <tr>
+                                <td colspan="2">
+                                  <form method="post">
+                                    <textarea id="mytextarea">Hello, World!</textarea>
+                                  </form>
+                                 </td>
+                              </tr>
+                        </table>
                     </div>
                     
                 </div>
