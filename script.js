@@ -112,6 +112,46 @@ function register(){
     window.location.href = "https://www.webtrafficexchange.co.uk/index.html"
    }
 
+   function initializeUserName(){
+        // POST request using fetch()
+    fetch("https://os6p24onhg.execute-api.eu-north-1.amazonaws.com/live/messages", {
+
+        // Adding method type
+        method: "POST",
+
+        // Adding body or contents to send
+        body: JSON.stringify(
+            {
+            user_name: getCookie("username"),
+            session_id: getCookie("session")
+            }
+        ),
+
+        // Adding headers to the request
+        headers: {
+            "Content-type": "application/json; charset=UTF-8"
+        }
+    })
+
+    // Converting to JSON
+    .then(response => response.json())
+    // Displaying results to console
+    .then(data => {
+        if (data['statusCode']==200) {
+            console.log(data);
+            document.getElementById("username").innerHTML=getCookie("username") + '<sub>'+JSON.parse(data['body']['messages']).length+'</sub>';     
+        }
+        else{
+            window.location.href="https://www.webtrafficexchange.co.uk";
+        }
+
+    })
+    .catch(error =>{
+        console.log(error);
+        window.location.href="https://www.webtrafficexchange.co.uk";
+    })
+   }
+
 
 function initialize(){
     checkCookie();
