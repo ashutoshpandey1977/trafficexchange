@@ -168,7 +168,7 @@ function initialize(){
             .forEach(openDropdown => openDropdown.classList.remove('show'))
         }
         });
-    document.getElementById("username").innerHTML=getCookie("username");
+        initializeUserName();
     // main.js
 
     // POST request using fetch()
@@ -461,7 +461,7 @@ function initializePTCScreen(){
             .forEach(openDropdown => openDropdown.classList.remove('show'))
     }
     });
-    document.getElementById("username").innerHTML=getCookie("username");
+    initializeUserName();
     
 }
 function getPTCAd(advert ='', advertiser = '', reward=0){
