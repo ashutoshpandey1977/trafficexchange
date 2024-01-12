@@ -139,7 +139,7 @@ function register(){
     .then(data => {
         if (data['statusCode']==200) {
             console.log(data);
-            document.getElementById("username").innerHTML=getCookie("username") + "<sub style='color:blue'>"+JSON.parse(data['body']['messages']).length+"</sub>";     
+            document.getElementById("username").innerHTML=getCookie("username") + "<div class='numberCircle'> <sub  style='color:blue'>"+JSON.parse(data['body']['messages']).length+"</sub></div>";     
         }
         else{
             window.location.href="https://www.webtrafficexchange.co.uk";

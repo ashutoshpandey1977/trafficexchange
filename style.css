@@ -291,3 +291,16 @@ a.ui-button:active,
     
 
   
+.numberCircle {
+  border-radius: 50%;
+  width: 12px;
+  height: 2px;
+  padding: 8px;
+
+  background: #fff;
+  border: 1px solid #666;
+  color: #666;
+  text-align: center;
+
+  font: 10px Arial, sans-serif;
+}
