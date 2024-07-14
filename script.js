@@ -628,7 +628,7 @@ function initializeIframe(type='AUTO', adType='SITE'){
             setCookie("advert",data['body']['advert'], 0.01);
             document.getElementById("advert").src=data['body']['advert'];
             document.getElementById("site_url").innerHTML=data['body']['advert'];
-            document.getElementById("wait").style.visibility="hidden";
+            document.getElementById("wait").style.display="none";
         }
         else{
             window.location.href="https://www.webtrafficexchange.co.uk";
